@@ -38,8 +38,8 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .logo { display:flex; align-items:center; gap:10px; padding:0 24px; height:76px; font-family:'Aleo', serif; font-size:24px; font-weight:700; letter-spacing:-0.2px; color:var(--text-active); }
 .beta { font-family:'Inter', sans-serif; font-size:10px; font-weight:800; background:var(--border); color:var(--text-secondary); padding:3px 7px; border-radius:4px; letter-spacing:0.5px; text-transform:uppercase; }
 
-/* Section labels: 18px top/bottom padding, 16px L/R */
-.sidebar-section-label { font-size:11px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.6px; padding:16px 16px 8px; display:flex; align-items:center; line-height:1; }
+/* Section labels: 18px tall container, 8px below before first nav item */
+.sidebar-section-label { font-size:11px; font-weight:500; color:#4A5163; padding:0 24px; margin:32px 0 8px; display:flex; align-items:center; height:18px; line-height:18px; white-space:nowrap; text-transform:uppercase; letter-spacing:0.04em; }
 
 /* My Workspace nav group: no extra top padding, label provides 8px bottom */
 .nav-group { padding:0 0 8px; display:flex; flex-direction:column; gap:4px; }
@@ -54,7 +54,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .nav-item:hover svg { opacity:0.85; }
 
 /* Team Workspaces section label */
-.workspace-section-label { font-size:11px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.6px; padding:16px 16px 8px; line-height:1; }
+.workspace-section-label { font-size:11px; font-weight:500; color:#4A5163; padding:0 24px; margin:32px 0 8px; height:18px; line-height:18px; white-space:nowrap; display:flex; align-items:center; text-transform:uppercase; letter-spacing:0.04em; }
 
 /* Workspace scroll: macOS-style auto-hiding scrollbar */
 .workspace-scroll { flex:1; overflow-y:auto; padding-bottom:20px; scrollbar-width:thin; scrollbar-color:transparent transparent; display:flex; flex-direction:column; gap:4px; }
@@ -205,10 +205,15 @@ thead th.sorted .sort-arrow { opacity:1; }
 th:first-child, td:first-child { padding-left:16px; }
 th:last-child, td:last-child { padding-right:16px; }
 /* Card rows: white, 72px tall, 4px radius, shadow */
-tbody tr { background:#fff; cursor:pointer; transition:box-shadow 0.12s; height:72px; box-shadow:0 0 0 1.5px #F2F5F8; }
-tbody tr td { border-top:none; }
-tbody tr:hover { box-shadow:0 0 0 1.5px #D6DDE5, 0 2px 10px rgba(37,99,235,0.06); }
-tbody tr:hover td { background:#fff; color:var(--text-active); }
+tbody tr { background:transparent; cursor:pointer; transition:box-shadow 0.12s; height:72px; }
+tbody tr td { border-top:none; background:#fff; box-shadow:0 0 0 1.5px #F2F5F8; }
+tbody tr td:not(:first-child) { box-shadow:inset 0 1.5px 0 0 #F2F5F8, inset 0 -1.5px 0 0 #F2F5F8, 1.5px 0 0 0 #F2F5F8; }
+tbody tr td:first-child { box-shadow:-1.5px 0 0 0 #F2F5F8, inset 0 1.5px 0 0 #F2F5F8, inset 0 -1.5px 0 0 #F2F5F8; }
+tbody tr td:last-child { box-shadow:inset 0 1.5px 0 0 #F2F5F8, inset 0 -1.5px 0 0 #F2F5F8, 1.5px 0 0 0 #F2F5F8; }
+tbody tr:hover td { background:#fff; color:var(--text-active); box-shadow:none; }
+tbody tr:hover td:first-child { box-shadow:-1.5px 0 0 0 #D6DDE5, inset 0 1.5px 0 0 #D6DDE5, inset 0 -1.5px 0 0 #D6DDE5, 0 2px 10px rgba(37,99,235,0.06); }
+tbody tr:hover td:not(:first-child):not(:last-child) { box-shadow:inset 0 1.5px 0 0 #D6DDE5, inset 0 -1.5px 0 0 #D6DDE5; }
+tbody tr:hover td:last-child { box-shadow:1.5px 0 0 0 #D6DDE5, inset 0 1.5px 0 0 #D6DDE5, inset 0 -1.5px 0 0 #D6DDE5; }
 tbody tr:hover .doc-name { color:var(--text-active); }
 tbody tr:hover .row-actions { opacity:1 !important; }
 tbody tr .row-actions.has-star-active { opacity:1; }
@@ -233,7 +238,9 @@ td .doc-name { font-weight:600; font-size:15px; color:var(--text-primary); white
 .owner-wrap { display:flex; align-items:center; gap:8px; min-width:0; overflow:hidden; white-space:nowrap; }
 .owner-wrap span, .owner-wrap > *:not(.mini-avatar) { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; }
 /* Keep row in active state while ctx menu is open */
-tbody tr.ctx-open { box-shadow:0 2px 10px rgba(0,0,0,0.09); }
+tbody tr.ctx-open td:first-child { box-shadow:-1.5px 0 0 0 #D6DDE5, inset 0 1.5px 0 0 #D6DDE5, inset 0 -1.5px 0 0 #D6DDE5, 0 2px 10px rgba(0,0,0,0.07); }
+tbody tr.ctx-open td:not(:first-child):not(:last-child) { box-shadow:inset 0 1.5px 0 0 #D6DDE5, inset 0 -1.5px 0 0 #D6DDE5; }
+tbody tr.ctx-open td:last-child { box-shadow:1.5px 0 0 0 #D6DDE5, inset 0 1.5px 0 0 #D6DDE5, inset 0 -1.5px 0 0 #D6DDE5; }
 tbody tr.ctx-open .row-actions { opacity:1 !important; }
 tbody tr.ctx-open td { color:var(--text-active); }
 tbody tr.ctx-open .doc-name { color:var(--text-active); }
@@ -620,8 +627,13 @@ function sortRows(rows, colMap){
 function fileIcon(){return`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;}
 
 const TEAM_ICON_SVG=`<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#ct)"><rect width="40" height="40" rx="20" fill="#939CB5"/><path d="M24.6201 21.1602C26.6301 21.5101 29 22.4601 29 24V26H26V24C26 22.8201 25.4501 21.8901 24.6201 21.1602ZM18 20.999C20 20.999 24 21.9992 24 23.999V25.998H12V23.999C12 21.9992 16 20.999 18 20.999ZM17.999 13C19.659 13 20.9893 14.3401 20.9893 16C20.9891 17.6598 19.6589 19 17.999 19C16.3393 18.9998 14.9991 17.6597 14.999 16C14.999 14.3402 16.3392 13.0002 17.999 13ZM22.999 13C24.659 13 25.9893 14.3401 25.9893 16C25.9891 17.6598 24.6589 19 22.999 19C22.6791 19 22.3688 18.9494 22.0889 18.8594C22.6488 18.0395 22.9892 17.0698 22.9893 16C22.9893 14.9301 22.6589 13.9496 22.0889 13.1396C22.3688 13.0497 22.6791 13 22.999 13Z" fill="white"/></g><defs><clipPath id="ct"><rect width="40" height="40" rx="20" fill="white"/></clipPath></defs></svg>`;
+const TEAM_ICON_LG=`<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#ct56)"><rect width="56" height="56" rx="28" fill="#939CB5"/><path d="M34.4681 29.6243C37.2821 30.1141 40.6 31.4441 40.6 33.6V36.4H36.4V33.6C36.4 31.9481 35.6301 30.6461 34.4681 29.6243ZM25.2 29.3986C28 29.3986 33.6 30.7989 33.6 33.5986V35.9972H16.8V33.5986C16.8 30.7989 22.4 29.3986 25.2 29.3986ZM25.1986 18.2C27.5226 18.2 29.3851 20.0761 29.3849 22.4C29.3847 24.7237 27.5225 26.6 25.1986 26.6C22.875 26.5997 20.9987 24.7236 20.9986 22.4C20.9986 20.0763 22.8749 18.2003 25.1986 18.2ZM32.1986 18.2C34.5226 18.2 36.3851 20.0761 36.3849 22.4C36.3847 24.7237 34.5225 26.6 32.1986 26.6C31.7508 26.6 31.3163 26.5292 30.9245 26.4032C31.7083 25.2553 32.1849 23.8977 32.185 22.4C32.185 20.9021 31.7225 19.5294 30.9245 18.3954C31.3163 18.2696 31.7508 18.2 32.1986 18.2Z" fill="white"/></g><defs><clipPath id="ct56"><rect width="56" height="56" rx="28" fill="white"/></clipPath></defs></svg>`;
+
 
 const WS_ICON_SVG=`<svg width="40" height="36" viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#cw)"><rect width="40" height="36" rx="8" fill="#0F3F88"/><path d="M13.2147 24V12.3636H18.067C18.9382 12.3636 19.6674 12.4867 20.2545 12.733C20.8454 12.9792 21.2886 13.3239 21.5841 13.767C21.8833 14.2102 22.0329 14.7235 22.0329 15.3068C22.0329 15.75 21.9401 16.1458 21.7545 16.4943C21.5689 16.839 21.3132 17.125 20.9875 17.3523C20.6617 17.5795 20.2848 17.7386 19.8568 17.8295V17.9432C20.3265 17.9659 20.7602 18.0928 21.1579 18.3239C21.5594 18.5549 21.8814 18.8769 22.1238 19.2898C22.3663 19.6989 22.4875 20.1837 22.4875 20.7443C22.4875 21.3693 22.3284 21.928 22.0102 22.4205C21.692 22.9091 21.2318 23.2955 20.6295 23.5795C20.0272 23.8598 19.2962 24 18.4363 24H13.2147ZM16.0272 21.733H17.7659C18.3757 21.733 18.8246 21.6174 19.1125 21.3864C19.4041 21.1553 19.55 20.8333 19.55 20.4205C19.55 20.1212 19.4799 19.8636 19.3397 19.6477C19.1996 19.428 19.0007 19.2595 18.7432 19.142C18.4856 19.0208 18.1769 18.9602 17.817 18.9602H16.0272V21.733ZM16.0272 17.1477H17.5841C17.8909 17.1477 18.1636 17.0966 18.4022 16.9943C18.6409 16.892 18.8265 16.7443 18.9591 16.5511C19.0954 16.358 19.1636 16.125 19.1636 15.8523C19.1636 15.4621 19.0254 15.1553 18.7488 14.9318C18.4723 14.7083 18.0992 14.5966 17.6295 14.5966H16.0272V17.1477ZM23.9997 24V15.2727H26.7782V24H23.9997ZM25.3918 14.2557C25.0016 14.2557 24.6664 14.1269 24.3861 13.8693C24.1058 13.608 23.9657 13.2936 23.9657 12.9261C23.9657 12.5625 24.1058 12.2519 24.3861 11.9943C24.6664 11.733 25.0016 11.6023 25.3918 11.6023C25.7857 11.6023 26.121 11.733 26.3975 11.9943C26.6778 12.2519 26.8179 12.5625 26.8179 12.9261C26.8179 13.2936 26.6778 13.608 26.3975 13.8693C26.121 14.1269 25.7857 14.2557 25.3918 14.2557Z" fill="white"/></g><defs><clipPath id="cw"><rect width="40" height="36" rx="8" fill="white"/></clipPath></defs></svg>`;
+function wsIconLg(color){
+  return`<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="56" height="56" rx="11" fill="${color}"/><path d="M18.5006 33.6V17.309H25.2938C26.5135 17.309 27.5344 17.481 28.3563 17.8262C29.1836 18.1709 29.804 18.6535 30.2178 19.2738C30.6366 19.894 30.846 20.6129 30.846 21.4295C30.846 22.05 30.7161 22.6035 30.4563 23.0898C30.1965 23.5747 29.8336 23.975 29.3676 24.2904C28.9063 24.6053 28.3787 24.834 27.785 24.9763V25.1401C28.4559 25.1721 29.0813 25.358 29.6611 25.6979C30.2461 26.0378 30.7241 26.5273 31.0951 27.1665C31.4661 27.8008 31.6516 28.5569 31.6516 29.4348C31.6516 30.3166 31.4215 31.1059 30.9613 31.8027C30.5011 32.4941 29.8259 33.0404 28.9358 33.4414C28.0456 33.838 26.9745 34.0365 25.7226 34.0365H18.5006V33.6ZM22.4381 30.4262H25.0731C25.9265 30.4262 26.5644 30.2424 26.9869 29.8748C27.4141 29.5072 27.6277 29.0167 27.6277 28.4033C27.6277 27.9673 27.527 27.5858 27.3256 27.2586C27.1242 26.9268 26.8376 26.669 26.4658 26.4853C26.0987 26.2969 25.6618 26.2027 25.1551 26.2027H22.4381V30.4262ZM22.4381 23.6073H24.7686C25.2015 23.6073 25.5823 23.5337 25.9111 23.3866C26.2445 23.2394 26.5079 23.0262 26.7013 22.7468C26.8994 22.4669 26.9985 22.125 26.9985 21.7209C26.9985 21.1463 26.8036 20.6929 26.4138 20.3608C26.0239 20.0286 25.4988 19.8625 24.8385 19.8625H22.4381V23.6073ZM33.5996 33.6V21.3818H37.4896V33.6H33.5996ZM35.5486 19.9578C34.9922 19.9578 34.5132 19.7775 34.1116 19.4169C33.7101 19.0515 33.5093 18.6109 33.5093 18.0952C33.5093 17.5844 33.7101 17.1466 34.1116 16.7812C34.5132 16.411 34.9922 16.2259 35.5486 16.2259C36.1097 16.2259 36.5887 16.411 36.9855 16.7812C37.387 17.1466 37.5878 17.5844 37.5878 18.0952C37.5878 18.6109 37.387 19.0515 36.9855 19.4169C36.5887 19.7775 36.1097 19.9578 35.5486 19.9578Z" fill="white"/></svg>`;
+}
 
 const PROJ_ICON_SVG=`<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="8" fill="white"/><rect x="1" y="1" width="38" height="38" rx="7" stroke="#636C85" stroke-opacity="0.2" stroke-width="2"/><path opacity="0.25" d="M14.3335 13C14.3335 11.8954 15.2289 11 16.3335 11H23.6669C24.7714 11 25.6669 11.8954 25.6669 13V13.4286H14.3335V13Z" fill="#323232"/><path opacity="0.5" d="M12.7144 16.2378C12.7144 15.1332 13.6098 14.2378 14.7144 14.2378H25.2859C26.3904 14.2378 27.2859 15.1332 27.2859 16.2378V16.6664H12.7144V16.2378Z" fill="#323232"/><path opacity="0.75" fill-rule="evenodd" clip-rule="evenodd" d="M11.0952 19.4761C11.0952 18.3715 11.9906 17.4761 13.0952 17.4761H26.9048C28.0094 17.4761 28.9048 18.3715 28.9048 19.4761V25.9999C28.9048 27.1045 28.0094 27.9999 26.9048 27.9999H13.0952C11.9906 27.9999 11.0952 27.1045 11.0952 25.9999L11.0952 19.4761Z" fill="#323232"/></svg>`;
 
@@ -1093,7 +1105,7 @@ function teamsTab(){
   const sortedT=sortRows(filtered,colMapT);
   if(S.viewMode==='grid'){
     const cards=sortedT.map((t,i)=>gridCard({
-      iconHtml:TEAM_ICON_SVG,
+      iconHtml:TEAM_ICON_LG,
       title:t.name,
       metaHtml:``,
       footerLeft:`<span class="gc-date">${t.date}</span>`,
@@ -1126,7 +1138,7 @@ function workspacesTab(){
   const sortedW=sortRows(filtered,colMapW);
   if(S.viewMode==='grid'){
     const cards=sortedW.map((w,i)=>gridCard({
-      iconHtml:WS_ICON_SVG,
+      iconHtml:wsIconLg(w.color),
       title:w.name,
       metaHtml:``,
       footerLeft:`<span class="gc-date">${w.date}</span>${accessTag(w.access)}`,
@@ -1254,7 +1266,7 @@ function accountTeamsTab(a){
   });
   if(S.viewMode==='grid'){
     const cards=filtered.map((t,i)=>gridCard({
-      iconHtml:TEAM_ICON_SVG,title:t.name,metaHtml:``,
+      iconHtml:TEAM_ICON_LG,title:t.name,metaHtml:``,
       footerLeft:`<span class="gc-date">${t.date}</span>`,
       roleBadge:roleTag(t.role),
       circleIcon:true,
@@ -1282,7 +1294,7 @@ function accountWorkspacesTab(a){
   });
   if(S.viewMode==='grid'){
     const cards=filtered.map((w,i)=>gridCard({
-      iconHtml:WS_ICON_SVG,title:w.name,metaHtml:``,
+      iconHtml:wsIconLg(w.color),title:w.name,metaHtml:``,
       footerLeft:`<span class="gc-date">${w.date}</span>${accessTag(w.access)}`,
       prefix:'ap-ws',idx:i
     })).join('');
