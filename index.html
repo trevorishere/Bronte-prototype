@@ -211,7 +211,7 @@ thead th::before { content:''; position:absolute; inset:0 -2px; background:#F9FA
 thead tr { border-bottom:none; box-shadow:none; }
 thead th:hover { color:var(--text-active); }
 thead th.sorted { color:var(--text-active); }
-thead th .sort-arrow { display:inline-flex; align-items:center; vertical-align:middle; margin-left:4px; opacity:0; transition:opacity 0.1s; line-height:1; padding-bottom:2px; }
+thead th .sort-arrow { display:inline-flex; align-items:center; vertical-align:middle; margin-left:4px; opacity:0; transition:opacity 0.1s; line-height:1; padding-bottom:3px; }
 thead th:hover .sort-arrow { opacity:0.5; }
 thead th.sorted .sort-arrow { opacity:1; }
 th:first-child, td:first-child { padding-left:16px; }
@@ -242,7 +242,7 @@ td.actions-cell { padding:0; overflow:visible; }
 /* Doc name truncation */
 td .doc-name { font-weight:700; font-size:15px; color:var(--text-primary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; letter-spacing:0.01em; }
 /* Owner and date */
-.owner-cell, .date-cell { color:var(--text-primary); font-size:15px; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.owner-cell, .date-cell { color:var(--text-primary); font-size:14px; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .date-cell { white-space:nowrap; }
 /* doc-cell: flex but must allow name to truncate */
 .doc-cell { display:flex; align-items:center; gap:16px; min-width:0; overflow:hidden; }
@@ -266,7 +266,7 @@ tbody tr.ctx-open .more-btn svg path { fill:#323232; }
 .empty-state-caption { font-size:16px; font-weight:500; color:var(--text-secondary); }
 .team-icon { width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; }
 .team-icon svg, .ws-icon-cell svg, .proj-icon svg { display:block; }
-.mini-avatar { width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#fff; flex-shrink:0; }.row-actions { display:flex; align-items:center; justify-content:flex-end; gap:0; opacity:0; transition:opacity 0.1s; }
+.mini-avatar { width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:600; color:#fff; flex-shrink:0; }.row-actions { display:flex; align-items:center; justify-content:flex-end; gap:0; opacity:0; transition:opacity 0.1s; }
 .star-btn, .more-btn { background:none; border:none; cursor:pointer; width:40px; height:40px; border-radius:6px; display:flex; align-items:center; justify-content:center; transition:background 0.1s; flex-shrink:0; }
 .star-btn:hover, .more-btn:hover { background:#F5F6F9; }
 .more-btn { margin-right:16px; }
@@ -275,10 +275,10 @@ tbody tr.ctx-open .more-btn svg path { fill:#323232; }
 .more-btn:hover svg path { fill:#323232; }
 /* Role and access tags: keep semantic colors but inherit on hover */
 .role-col { padding-right:28px; }
-.role-tag { display:inline-flex; align-items:center; gap:12px; padding:8px 16px 8px 8px; border-radius:20px; font-size:14px; font-weight:600; white-space:nowrap; height:36px; box-sizing:border-box; }
+.role-tag { display:inline-flex; align-items:center; gap:12px; padding:6px 16px 6px 8px; border-radius:20px; font-size:14px; font-weight:600; white-space:nowrap; height:36px; box-sizing:border-box; }
 .role-tag-icon { width:18px; height:18px; flex-shrink:0; }
 .role-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-.access-tag { display:inline-flex; align-items:center; padding:8px 16px; border-radius:20px; font-size:14px; font-weight:600; white-space:nowrap; height:36px; box-sizing:border-box; }
+.access-tag { display:inline-flex; align-items:center; padding:6px 112px; border-radius:20px; font-size:14px; font-weight:600; white-space:nowrap; height:36px; box-sizing:border-box; }
 .ws-icon-cell { width:40px; height:40px; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; }
 
 /* GRID */
