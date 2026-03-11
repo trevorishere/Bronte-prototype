@@ -121,14 +121,14 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .filter-group { display:flex; gap:8px; flex-wrap:wrap; overflow:visible; }
 
 /* PILLS */
-.filter-pill { display:inline-flex; align-items:center; gap:8px; padding:0 4px 0 4px; height:44px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; user-select:none; background:#F9FAFB; border:1.5px solid #D8DEE5; color:var(--text-secondary); transition:background 0.12s, border-color 0.12s, color 0.12s; white-space:nowrap; position:relative; flex-wrap:nowrap; max-width:320px; }
-.filter-pill.active { padding:0 4px 0 4px; }
+.filter-pill { display:inline-flex; align-items:center; gap:8px; padding:0 8px 0 8px; height:44px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; user-select:none; background:#F9FAFB; border:1.5px solid #D8DEE5; color:var(--text-secondary); transition:background 0.12s, border-color 0.12s, color 0.12s; white-space:nowrap; position:relative; flex-wrap:nowrap; max-width:320px; }
+.filter-pill.active { padding:0 8px 0 8px; }
 .filter-pill:hover { background:#fff; border-color:#D8DEE5; color:var(--text-active); }
 .filter-pill.active { background:#fff; border-color:#D8DEE5; color:var(--text-active); font-weight:600; }
 .filter-pill.open { background:#fff; border-color:#D8DEE5; color:var(--text-active); }
 .pill-label { flex-shrink:0; }
 .pill-chips { display:inline-flex; align-items:center; gap:6px; flex-wrap:nowrap; overflow:hidden; min-width:0; }
-.pill-chip { display:inline-flex; align-items:center; gap:6px; background:#F5F6F9; color:#4A5163; font-size:14px; font-weight:500; padding:0 6px 0 6px; border-radius:4px; height:32px; white-space:nowrap; flex-shrink:0; }
+.pill-chip { display:inline-flex; align-items:center; gap:6px; background:#F5F6F9; color:#4A5163; font-size:14px; font-weight:500; padding:0 4px 0 4px; border-radius:4px; height:32px; white-space:nowrap; flex-shrink:0; }
 .pill-chip-x { display:flex; align-items:center; justify-content:center; width:16px; height:16px; cursor:pointer; transition:opacity 0.1s; color:#636C85; opacity:0.8; flex-shrink:0; }
 .pill-chip-x:hover { opacity:1; }
 .pill-chip-overflow { display:inline-flex; align-items:center; background:#F5F6F9; color:#4A5163; font-size:14px; font-weight:500; padding:0 10px; border-radius:6px; height:32px; white-space:nowrap; flex-shrink:0; }
