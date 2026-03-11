@@ -12,13 +12,13 @@
   --bg: #fff;
   --sidebar-bg: #fff;
   --sidebar-border: #e8e8e8;
-  --nav-active-bg: #EEF3FB;
+  --nav-active-bg: #F5F6F9;
   --text-primary: #636C85;
   --text-secondary: #636C85;
   --text-muted: #636C85;
   --text-active: #323232;
-  --accent: #2563eb;
-  --accent-light: #eff6ff;
+  --accent: #36609E;
+  --accent-light: #EAF0F8;
   --border: #e5e7eb;
   --row-hover: #f9fafb;
   --btn-primary: #36609E;
@@ -39,7 +39,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .beta { font-family:'Inter', sans-serif; font-size:10px; font-weight:800; background:var(--border); color:var(--text-secondary); padding:3px 7px; border-radius:4px; letter-spacing:0.5px; text-transform:uppercase; }
 
 /* Section labels: 18px tall container, 8px below before first nav item */
-.sidebar-section-label { font-size:12px; font-weight:500; color:#959EB7; padding:0 24px; margin:32px 0 8px; display:flex; align-items:center; height:20px; line-height:18px; white-space:nowrap; letter-spacing:0.04em; }
+.sidebar-section-label { font-size:11px; font-weight:500; color:#4A5163; padding:0 24px; margin:32px 0 8px; display:flex; align-items:center; height:18px; line-height:18px; white-space:nowrap; text-transform:uppercase; letter-spacing:0.04em; }
 
 /* My Workspace nav group: no extra top padding, label provides 8px bottom */
 .nav-group { padding:0 0 8px; display:flex; flex-direction:column; gap:4px; }
@@ -54,7 +54,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .nav-item:hover svg { opacity:0.85; }
 
 /* Team Workspaces section label */
-.workspace-section-label { font-size:12px; font-weight:500; color:#959EB7; padding:0 24px; margin:32px 0 8px; height:20px; line-height:18px; white-space:nowrap; display:flex; align-items:center; letter-spacing:0.04em; }
+.workspace-section-label { font-size:11px; font-weight:500; color:#4A5163; padding:0 24px; margin:32px 0 8px; height:18px; line-height:18px; white-space:nowrap; display:flex; align-items:center; text-transform:uppercase; letter-spacing:0.04em; }
 
 /* Workspace scroll: macOS-style auto-hiding scrollbar */
 .workspace-scroll { flex:1; overflow-y:auto; padding-bottom:20px; scrollbar-width:thin; scrollbar-color:transparent transparent; display:flex; flex-direction:column; gap:4px; }
@@ -110,85 +110,95 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 
 /* TABS */
 .tabs { display:flex; gap:12px; }
-.tab { padding:0 20px 24px; height:auto; display:flex; align-items:flex-start; font-size:16px; font-weight:600; color:var(--text-secondary); cursor:pointer; border-bottom:4px solid transparent; margin-bottom:-1px; transition:color 0.1s,border-color 0.1s; user-select:none; white-space:nowrap; }
+.tab { padding:0 20px 20px; height:auto; display:flex; align-items:flex-start; font-size:16px; font-weight:600; color:var(--text-secondary); cursor:pointer; border-bottom:4px solid transparent; margin-bottom:-1px; transition:color 0.1s,border-color 0.1s; user-select:none; white-space:nowrap; }
 .tab:hover { color:var(--text-active); }
 .tab.active { color:var(--accent); border-bottom-color:var(--accent); font-weight:700; }
 .tabs-bar { border-bottom:1px solid var(--border); padding:24px 32px 0; background:#fff; flex-shrink:0; }
 .tabs-bar .tabs { padding:0; }
 
 /* TOOLBAR — 138px total: 48px top padding + 42px row + 48px bottom padding */
-.toolbar { display:flex; align-items:center; justify-content:space-between; padding:32px 32px 32px; background:#F9FAFB; flex-shrink:0; gap:12px; }
-.filter-group { display:flex; gap:8px; flex-wrap:wrap; }
+.toolbar { display:flex; align-items:center; justify-content:space-between; padding:32px 32px 32px; background:#F9FAFB; flex-shrink:0; gap:12px; overflow:visible; }
+.filter-group { display:flex; gap:8px; flex-wrap:wrap; overflow:visible; }
 
-/* PILLS — 48px tall, 16px L pad, 8px gap, 12px R pad */
-.filter-pill { display:inline-flex; align-items:center; gap:24px; padding:0 12px 0 16px; height:48px; border-radius:8px; font-size:15px; font-weight:600; cursor:pointer; user-select:none; background:none; border:1.5px solid transparent; color:#D8DEE5; transition:background 0.12s, border-color 0.12s, color 0.12s, box-shadow 0.12s; white-space:nowrap; position:relative; }
-.filter-pill:hover { background:#fff; border-color:#D8DEE5; box-shadow:none; color:var(--text-active); }
-.filter-pill.active { background:#fff; border-color:#D8DEE5; color:var(--text-active); font-weight:600; box-shadow:none; }
-.pill-chevron { display:flex; align-items:center; justify-content:center; width:20px; height:20px; flex-shrink:0; opacity:0.5; transition:transform 0.15s; }
-.filter-pill.open { background:#fff; border-color:var(--control-border); box-shadow:none; color:var(--text-active); }
-.filter-pill.open .pill-chevron { transform:none; }
-.pill-dropdown { position:absolute; top:calc(100% + 6px); left:0; background:var(--filter-bg); border:1.5px solid transparent; border-radius:8px; box-shadow:none; min-width:100%; width:max-content; max-width:280px; z-index:300; display:none; overflow:hidden; padding:8px 20px 8px 8px; }
-.pill-dropdown.open { display:block; background:#fff; border-color:var(--control-border); box-shadow:0 2px 8px rgba(0,0,0,0.07); animation:fadeIn 0.1s ease; }
+/* PILLS */
+.filter-pill { display:inline-flex; align-items:center; gap:8px; padding:0 12px 0 16px; height:44px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; user-select:none; background:#F9FAFB; border:1.5px solid #D8DEE5; color:var(--text-secondary); transition:background 0.12s, border-color 0.12s, color 0.12s; white-space:nowrap; position:relative; flex-wrap:nowrap; max-width:320px; }
+.filter-pill.active { padding:0 12px 0 8px; }
+.filter-pill:hover { background:#fff; border-color:#D8DEE5; color:var(--text-active); }
+.filter-pill.active { background:#fff; border-color:#D8DEE5; color:var(--text-active); font-weight:600; }
+.filter-pill.open { background:#fff; border-color:#D8DEE5; color:var(--text-active); }
+.pill-label { flex-shrink:0; }
+.pill-chips { display:inline-flex; align-items:center; gap:4px; flex-wrap:nowrap; overflow:hidden; min-width:0; }
+.pill-chip { display:inline-flex; align-items:center; gap:6px; background:#E8EEF7; color:#4A5163; font-size:14px; font-weight:600; padding:0 6px 0 10px; border-radius:6px; height:32px; white-space:nowrap; flex-shrink:0; }
+.pill-chip-x { display:flex; align-items:center; justify-content:center; width:16px; height:16px; cursor:pointer; transition:opacity 0.1s; color:#6B7280; opacity:0.5; flex-shrink:0; }
+.pill-chip-x:hover { opacity:1; }
+.pill-chip-overflow { display:inline-flex; align-items:center; background:#E8EEF7; color:#4A5163; font-size:14px; font-weight:600; padding:0 10px; border-radius:6px; height:32px; white-space:nowrap; flex-shrink:0; }
+.pill-chevron { display:flex; align-items:center; justify-content:center; width:20px; height:20px; flex-shrink:0; opacity:0.5; margin-left:8px; }
+
+/* DROPDOWN */
+.pill-dropdown { position:absolute; top:calc(100% + 6px); left:0; background:#fff; border:1px solid #D8DEE5; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08); width:240px; z-index:300; display:none; overflow:hidden; padding:4px; }
+.pill-dropdown.open { display:block; animation:fadeIn 0.1s ease; }
 .pill-dd-header { display:none; }
-.pill-dd-header-label { font-size:14px; font-weight:600; color:var(--text-active); }
-.pill-dd-header-chevron { color:var(--text-secondary); display:flex; align-items:center; }
-.pill-dd-item { height:44px; padding:0 0 0 16px; min-width:180px; margin:0 0; font-size:14px; font-weight:600; color:#636C85; cursor:pointer; transition:background 0.1s,color 0.1s; display:flex; align-items:center; gap:10px; white-space:nowrap; border-radius:0; }
-.pill-dd-item:hover { background:var(--nav-active-bg); color:#323232; border-radius:6px; }
+.pill-dd-item { height:40px; padding:0 12px; font-size:14px; font-weight:500; color:#636C85; cursor:pointer; transition:background 0.1s,color 0.1s; display:flex; align-items:center; justify-content:space-between; gap:16px; white-space:nowrap; border-radius:8px; margin-bottom:4px; }
+.pill-dd-item:last-child { margin-bottom:0; }
+.pill-dd-item:hover { background:#EEF3FB; color:#323232; }
 .pill-dd-item.selected { color:#323232; }
-.pill-dd-item.selected:hover { background:var(--nav-active-bg); color:#323232; border-radius:6px; }
+.pill-dd-item.selected:hover { background:#EEF3FB; }
 .pill-dd-check { display:none; }
-/* Checkbox */
-.dd-checkbox { width:16px; height:16px; border-radius:4px; border:1.5px solid #C4C8D4; background:#fff; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:background 0.1s,border-color 0.1s; }
-.pill-dd-item.selected .dd-checkbox { background:var(--accent); border-color:var(--accent); }
-.dd-checkbox svg { display:none; }
-.pill-dd-item.selected .dd-checkbox svg { display:block; }
+/* Circle checkmark */
+.dd-circle { width:15px; height:15px; border-radius:50%; border:1.5px solid #C4C8D4; background:#fff; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:background 0.12s,border-color 0.12s; }
+.pill-dd-item.selected .dd-circle { background:#36609E; border-color:#36609E; }
+.pill-dd-item:hover:not(.selected) .dd-circle { border-color:#93AECF; }
+.dd-circle svg { display:none; }
+.pill-dd-item.selected .dd-circle svg { display:block; }
 
 /* DATE PICKER */
-.date-picker-dropdown { position:absolute; top:calc(100% + 8px); left:0; background:#fff; border:1px solid var(--border); border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.07); z-index:400; display:none; padding:0; min-width:660px; overflow:hidden; }
-.date-picker-dropdown.open { display:block; animation:fadeIn 0.1s ease; }
-/* Calendar area */
-.dp-cal-wrap { display:flex; gap:0; padding:28px 36px 0; }
-.dp-cal-col { flex:1; }
-.dp-cal-col+.dp-cal-col { border-left:1px solid var(--border); padding-left:36px; }
-/* Month/year header */
-.dp-month-hdr { display:flex; align-items:center; justify-content:space-between; height:32px; margin-bottom:8px; }
-.dp-month-nav { background:none; border:1px solid #e5e7eb; cursor:pointer; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--text-secondary); transition:background 0.1s; flex-shrink:0; }
-.dp-month-nav:hover { background:var(--nav-active-bg); }
-.dp-month-name { font-size:15px; font-weight:700; color:var(--text-active); cursor:default; }
-/* DOW row */
-.dp-dow-row { display:grid; grid-template-columns:repeat(7,40px); height:28px; margin-bottom:8px; }
-.dp-dow { width:40px; height:28px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; color:#9ca3af; }
+/* ── DATE PICKER DROPDOWN ── */
+.date-picker-dropdown { position:absolute; top:calc(100% + 8px); left:0; background:#fff; border:1.5px solid #e2e6ed; border-radius:16px; box-shadow:0 8px 32px rgba(30,40,80,0.13); z-index:400; display:none; padding:0; min-width:640px; overflow:hidden; font-family:inherit; }
+.date-picker-dropdown.open { display:block; animation:fadeIn 0.12s ease; }
+/* Calendar columns */
+.dp-cal-wrap { display:flex; gap:0; padding:24px 28px 8px; }
+.dp-cal-col { flex:1; min-width:0; }
+.dp-cal-col+.dp-cal-col { border-left:1.5px solid #f0f2f6; padding-left:28px; margin-left:4px; }
+/* Month header */
+.dp-month-hdr { display:flex; align-items:center; justify-content:space-between; height:36px; margin-bottom:10px; }
+.dp-month-nav { background:none; border:1.5px solid #e2e6ed; cursor:pointer; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#8492a6; transition:background 0.1s,border-color 0.1s; flex-shrink:0; }
+.dp-month-nav:hover { background:#EEF3FB; border-color:#b8c5da; color:#36609E; }
+.dp-month-name { font-size:14px; font-weight:700; color:#1e293b; letter-spacing:0.01em; }
+/* Day-of-week row */
+.dp-dow-row { display:grid; grid-template-columns:repeat(7,36px); height:26px; margin-bottom:4px; }
+.dp-dow { width:36px; height:26px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#b0bac9; letter-spacing:0.04em; text-transform:uppercase; }
 /* Day grid */
-.dp-grid { display:grid; grid-template-columns:repeat(7,40px); }
-.dp-day { width:40px; height:40px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:400; color:var(--text-primary); cursor:pointer; transition:background 0.08s,color 0.08s; user-select:none; position:relative; }
-.dp-day:hover:not(.dp-empty):not(.dp-selected):not(.dp-range-start):not(.dp-range-end) { background:var(--nav-active-bg); color:var(--text-active); border-radius:50%; }
+.dp-grid { display:grid; grid-template-columns:repeat(7,36px); row-gap:2px; }
+.dp-day { width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:400; color:#374151; cursor:pointer; transition:background 0.07s,color 0.07s; user-select:none; position:relative; border-radius:50%; }
+.dp-day:hover:not(.dp-empty):not(.dp-selected):not(.dp-range-start):not(.dp-range-end) { background:#EEF3FB; color:#36609E; border-radius:50%; }
 .dp-day.dp-empty { cursor:default; }
-.dp-day.dp-today { font-weight:700; color:var(--accent); box-shadow:inset 0 0 0 1.5px var(--accent); border-radius:50%; }
-.dp-day.dp-selected { background:var(--accent); color:#fff; border-radius:50%; font-weight:600; box-shadow:none; }
-.dp-day.dp-range-start { background:var(--accent); color:#fff; border-radius:50%; font-weight:600; box-shadow:none; z-index:1; }
-.dp-day.dp-range-start::after { content:''; position:absolute; top:0; right:0; width:50%; height:100%; background:#EEF3FB; z-index:-1; }
-.dp-day.dp-range-end { background:var(--accent); color:#fff; border-radius:50%; font-weight:600; box-shadow:none; z-index:1; }
-.dp-day.dp-range-end::before { content:''; position:absolute; top:0; left:0; width:50%; height:100%; background:#EEF3FB; z-index:-1; }
-.dp-day.dp-in-range { background:#EEF3FB; color:#2563eb; border-radius:0; }
-.dp-day.dp-in-range:first-child, .dp-day.dp-in-range.dp-week-start { border-radius:6px 0 0 6px; }
+.dp-day.dp-today { font-weight:700; color:#36609E; box-shadow:inset 0 0 0 1.5px #36609E; border-radius:50%; }
+.dp-day.dp-selected,.dp-day.dp-range-start,.dp-day.dp-range-end { background:#36609E; color:#fff; border-radius:50%; font-weight:700; z-index:1; }
+.dp-day.dp-range-start::after { content:''; position:absolute; top:0; right:0; width:50%; height:100%; background:#dbeafe; z-index:-1; border-radius:0; }
+.dp-day.dp-range-end::before { content:''; position:absolute; top:0; left:0; width:50%; height:100%; background:#dbeafe; z-index:-1; border-radius:0; }
+.dp-day.dp-in-range { background:#dbeafe; color:#36609E; border-radius:0; font-weight:500; }
+.dp-day.dp-in-range.dp-week-start { border-radius:6px 0 0 6px; }
 .dp-day.dp-in-range.dp-week-end { border-radius:0 6px 6px 0; }
 /* Footer */
-.dp-footer { display:flex; align-items:center; justify-content:flex-end; gap:8px; margin:20px 36px 28px; }
-.dp-clear { background:#fff; border:1px solid #e5e7eb; font-size:13px; font-weight:600; color:var(--text-secondary); cursor:pointer; padding:0 24px; height:48px; border-radius:8px; transition:background 0.1s,color 0.1s; letter-spacing:0.02em; }
-.dp-clear:hover { background:var(--nav-active-bg); color:var(--text-active); }
-.dp-apply { background:#fff; color:var(--text-secondary); border:1px solid #e5e7eb; font-size:13px; font-weight:600; padding:0 24px; height:48px; border-radius:8px; cursor:pointer; transition:background 0.1s,color 0.1s; letter-spacing:0.02em; }
-.dp-apply:hover { background:var(--nav-active-bg); color:var(--text-active); }
+.dp-footer { display:flex; align-items:center; justify-content:space-between; padding:14px 28px 20px; border-top:1.5px solid #f0f2f6; margin-top:12px; gap:12px; }
+.dp-range-label { display:flex; align-items:center; gap:8px; flex:1; }
+.dp-range-chip { font-size:13px; font-weight:600; color:#b0bac9; padding:6px 14px; border-radius:8px; border:1.5px solid #e2e6ed; background:#f8fafc; min-width:110px; text-align:center; transition:color 0.15s,border-color 0.15s; }
+.dp-range-chip.set { color:#1e293b; border-color:#93c5fd; background:#eff6ff; }
+.dp-footer-btns { display:flex; gap:8px; flex-shrink:0; }
+.dp-clear { background:#fff; border:1.5px solid #e2e6ed; font-size:13px; font-weight:600; color:#8492a6; cursor:pointer; padding:0 20px; height:40px; border-radius:8px; transition:all 0.1s; font-family:inherit; }
+.dp-clear:hover { background:#f1f5f9; color:#374151; border-color:#b8c5da; }
+.dp-apply { background:#e2e8f0; color:#94a3b8; border:none; font-size:13px; font-weight:700; padding:0 24px; height:40px; border-radius:8px; cursor:pointer; transition:all 0.15s; font-family:inherit; }
+.dp-apply.ready { background:#36609E; color:#fff; }
+.dp-apply.ready:hover { background:#36609E; }
 
 /* VIEW TOGGLE */
-.view-toggle { display:flex; border-radius:9px; background:var(--filter-bg); padding:0; gap:0; height:40px; box-sizing:border-box; align-items:center; overflow:hidden; }
-.view-btn { width:40px; height:40px; background:transparent; border:none; cursor:pointer; color:#ACB1BF; display:flex; align-items:center; justify-content:center; transition:all 0.12s; flex-shrink:0; border-radius:0; }
-.view-btn:first-child { border-radius:9px 0 0 9px; }
-.view-btn:last-child { border-radius:0 9px 9px 0; }
-.view-btn.active { background:#fff; color:var(--text-active); box-shadow:none; border:1.5px solid var(--control-border); border-radius:7px; margin:2px; height:36px; width:36px; }
-.view-btn:hover:not(.active) { color:var(--text-secondary); }
+.view-toggle { display:flex; border-radius:12px; background:#FDFDFD; border:1px solid #EEF2F6; padding:4px; gap:4px; height:44px; box-sizing:border-box; align-items:center; }
+.view-btn { width:36px; height:36px; background:transparent; border:none; cursor:pointer; color:#ACB1BF; display:flex; align-items:center; justify-content:center; transition:color 0.12s; flex-shrink:0; border-radius:6px; }
+.view-btn.active { background:#fff; color:#4A5163; border:1px solid #EEF2F6; box-shadow:0 1px 3px rgba(0,0,0,0.08); }
+.view-btn:hover:not(.active) { color:#636C85; background:transparent; }
 
 .toolbar-right { display:flex; align-items:center; gap:9px; flex-shrink:0; }
-.btn-primary { display:flex; align-items:center; gap:8px; padding:0 16px; height:40px; background:var(--btn-primary); color:#fff; border:none; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer; transition:background 0.12s; white-space:nowrap; font-family:inherit; }
+.btn-primary { display:flex; align-items:center; gap:16px; padding:0 20px 0 12px; height:44px; background:var(--btn-primary); color:#fff; border:none; border-radius:7px; font-size:15px; font-weight:700; cursor:pointer; transition:background 0.12s; white-space:nowrap; font-family:inherit; }
 .btn-primary:hover { background:var(--btn-primary-hover); }
 
 /* TABLE */
@@ -196,7 +206,9 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .table-container::-webkit-scrollbar { width:5px; }
 .table-container::-webkit-scrollbar-thumb { background:#d1d5db; border-radius:3px; }
 table { width:100%; border-collapse:separate; border-spacing:0 0; padding:0 32px 16px; table-layout:fixed; }
-thead th { padding:0 14px; height:34px; text-align:left; font-size:14px; font-weight:700; color:var(--text-primary); background:#F9FAFB; position:sticky; top:0; z-index:2; cursor:pointer; user-select:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; transition:color 0.1s; display:table-cell; vertical-align:middle; }
+thead th { padding:0 14px; height:34px; text-align:left; font-size:14px; font-weight:700; color:var(--text-primary); background:#F9FAFB; position:sticky; top:0; z-index:2; cursor:pointer; user-select:none; white-space:nowrap; overflow:visible; text-overflow:ellipsis; transition:color 0.1s; display:table-cell; vertical-align:middle; border-bottom:none; box-shadow:0 1px 0 0 #F9FAFB; }
+thead th::before { content:''; position:absolute; inset:0 -2px; background:#F9FAFB; z-index:-1; }
+thead tr { border-bottom:none; box-shadow:none; }
 thead th:hover { color:var(--text-active); }
 thead th.sorted { color:var(--text-active); }
 thead th .sort-arrow { display:inline-flex; align-items:center; vertical-align:middle; margin-left:4px; opacity:0; transition:opacity 0.1s; line-height:1; padding-bottom:2px; }
@@ -204,27 +216,27 @@ thead th:hover .sort-arrow { opacity:0.5; }
 thead th.sorted .sort-arrow { opacity:1; }
 th:first-child, td:first-child { padding-left:16px; }
 th:last-child, td:last-child { padding-right:16px; }
-/* Card rows: white, 72px tall, 4px radius, shadow */
+/* Card rows: #FDFDFD default, #ffffff on hover/select, 8px radius */
 tbody tr { background:transparent; cursor:pointer; transition:box-shadow 0.12s; height:72px; }
-tbody tr td { border-top:none; background:#fff; box-shadow:0 0 0 1.5px #F2F5F8; }
-tbody tr td:not(:first-child) { box-shadow:inset 0 1.5px 0 0 #F2F5F8, inset 0 -1.5px 0 0 #F2F5F8, 1.5px 0 0 0 #F2F5F8; }
-tbody tr td:first-child { box-shadow:-1.5px 0 0 0 #F2F5F8, inset 0 1.5px 0 0 #F2F5F8, inset 0 -1.5px 0 0 #F2F5F8; }
-tbody tr td:last-child { box-shadow:inset 0 1.5px 0 0 #F2F5F8, inset 0 -1.5px 0 0 #F2F5F8, 1.5px 0 0 0 #F2F5F8; }
-tbody tr:hover td { background:#fff; color:var(--text-active); box-shadow:none; }
-tbody tr:hover td:first-child { box-shadow:-1.5px 0 0 0 #D6DDE5, inset 0 1.5px 0 0 #D6DDE5, inset 0 -1.5px 0 0 #D6DDE5, 0 2px 10px rgba(37,99,235,0.06); }
-tbody tr:hover td:not(:first-child):not(:last-child) { box-shadow:inset 0 1.5px 0 0 #D6DDE5, inset 0 -1.5px 0 0 #D6DDE5; }
-tbody tr:hover td:last-child { box-shadow:1.5px 0 0 0 #D6DDE5, inset 0 1.5px 0 0 #D6DDE5, inset 0 -1.5px 0 0 #D6DDE5; }
+tbody tr td { border-top:none; background:#FDFDFD; box-shadow:0 0 0 1px #EEF2F6; }
+tbody tr td:not(:first-child) { box-shadow:inset 0 1px 0 0 #EEF2F6, inset 0 -1px 0 0 #EEF2F6, 1px 0 0 0 #EEF2F6; }
+tbody tr td:first-child { box-shadow:-1px 0 0 0 #EEF2F6, inset 0 1px 0 0 #EEF2F6, inset 0 -1px 0 0 #EEF2F6; }
+tbody tr td:last-child { box-shadow:inset 0 1px 0 0 #EEF2F6, inset 0 -1px 0 0 #EEF2F6, 1px 0 0 0 #EEF2F6; }
+tbody tr:hover td { background:#ffffff; color:var(--text-active); }
+tbody tr:hover td:first-child { box-shadow:-1px 0 0 0 #DFDFED, inset 0 1px 0 0 #DFDFED, inset 0 -1px 0 0 #DFDFED; }
+tbody tr:hover td:not(:first-child):not(:last-child) { box-shadow:inset 0 1px 0 0 #DFDFED, inset 0 -1px 0 0 #DFDFED; }
+tbody tr:hover td:last-child { box-shadow:1px 0 0 0 #DFDFED, inset 0 1px 0 0 #DFDFED, inset 0 -1px 0 0 #DFDFED; }
 tbody tr:hover .doc-name { color:var(--text-active); }
 tbody tr:hover .row-actions { opacity:1 !important; }
 tbody tr .row-actions.has-star-active { opacity:1; }
 tbody tr .row-actions .star-btn.starred { opacity:1; }
 /* Row gap via spacer rows */
-tbody tr.spacer { height:8px; background:transparent; box-shadow:none; pointer-events:none; }
-tbody tr.spacer td { padding:0; border:none; background:transparent; }
+tbody tr.spacer { height:8px !important; max-height:8px !important; background:transparent; box-shadow:none; pointer-events:none; }
+tbody tr.spacer td { padding:0; border:none; background:transparent; box-shadow:none !important; height:8px !important; }
 td { padding:0 16px; font-size:15px; font-weight:500; vertical-align:middle; color:var(--text-primary); overflow:hidden; max-width:0; }
 /* 4px radius on ALL corners of each row via first/last td */
-tbody tr td:first-child { border-radius:4px 0 0 4px; }
-tbody tr td:last-child { border-radius:0 4px 4px 0; }
+tbody tr td:first-child { border-radius:8px 0 0 8px; }
+tbody tr td:last-child { border-radius:0 8px 8px 0; }
 /* Actions cell: zero padding — buttons are 40px, more-btn has 16px right margin to land icon 16px from row edge */
 td.actions-cell { padding:0; overflow:visible; }
 /* Doc name truncation */
@@ -238,9 +250,10 @@ td .doc-name { font-weight:600; font-size:15px; color:var(--text-primary); white
 .owner-wrap { display:flex; align-items:center; gap:8px; min-width:0; overflow:hidden; white-space:nowrap; }
 .owner-wrap span, .owner-wrap > *:not(.mini-avatar) { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; }
 /* Keep row in active state while ctx menu is open */
-tbody tr.ctx-open td:first-child { box-shadow:-1.5px 0 0 0 #D6DDE5, inset 0 1.5px 0 0 #D6DDE5, inset 0 -1.5px 0 0 #D6DDE5, 0 2px 10px rgba(0,0,0,0.07); }
-tbody tr.ctx-open td:not(:first-child):not(:last-child) { box-shadow:inset 0 1.5px 0 0 #D6DDE5, inset 0 -1.5px 0 0 #D6DDE5; }
-tbody tr.ctx-open td:last-child { box-shadow:1.5px 0 0 0 #D6DDE5, inset 0 1.5px 0 0 #D6DDE5, inset 0 -1.5px 0 0 #D6DDE5; }
+tbody tr.ctx-open td:first-child { box-shadow:-1px 0 0 0 #DFDFED, inset 0 1px 0 0 #DFDFED, inset 0 -1px 0 0 #DFDFED; }
+tbody tr.ctx-open td:not(:first-child):not(:last-child) { box-shadow:inset 0 1px 0 0 #DFDFED, inset 0 -1px 0 0 #DFDFED; }
+tbody tr.ctx-open td:last-child { box-shadow:1px 0 0 0 #DFDFED, inset 0 1px 0 0 #DFDFED, inset 0 -1px 0 0 #DFDFED; }
+tbody tr.ctx-open td { background:#ffffff; }
 tbody tr.ctx-open .row-actions { opacity:1 !important; }
 tbody tr.ctx-open td { color:var(--text-active); }
 tbody tr.ctx-open .doc-name { color:var(--text-active); }
@@ -248,27 +261,30 @@ tbody tr.ctx-open .more-btn svg path { fill:#323232; }
 .owner-wrap { display:flex; align-items:center; gap:8px; }
 /* Doc cell */
 .doc-cell { display:flex; align-items:center; gap:16px; }
-.doc-icon { width:40px; height:40px; background:#f3f4f6; border-radius:4px; box-shadow:0 0 4px -2px rgba(0,0,0,0.06); display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; }
-.team-icon { width:40px; height:40px; border-radius:4px; display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; }
+.doc-icon { width:40px; height:40px; background:none; border-radius:4px; display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; }
+.empty-state { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#F9FAFB; min-height:300px; gap:16px; }
+.empty-state-caption { font-size:15px; font-weight:600; color:var(--text-secondary); }
+.team-icon { width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; }
 .team-icon svg, .ws-icon-cell svg, .proj-icon svg { display:block; }
 .mini-avatar { width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#fff; flex-shrink:0; }.row-actions { display:flex; align-items:center; justify-content:flex-end; gap:0; opacity:0; transition:opacity 0.1s; }
 .star-btn, .more-btn { background:none; border:none; cursor:pointer; width:40px; height:40px; border-radius:6px; display:flex; align-items:center; justify-content:center; transition:background 0.1s; flex-shrink:0; }
+.star-btn:hover, .more-btn:hover { background:#F5F6F9; }
 .more-btn { margin-right:16px; }
 .star-btn:hover svg .star-path { stroke:#323232; }
 .star-btn.starred svg .star-path { fill:#323232; stroke:#323232; }
 .more-btn:hover svg path { fill:#323232; }
 /* Role and access tags: keep semantic colors but inherit on hover */
 .role-col { padding-right:28px; }
-.role-tag { display:inline-flex; align-items:center; gap:7px; padding:10px 16px 10px 12px; border-radius:20px; font-size:15px; font-weight:700; white-space:nowrap; height:40px; box-sizing:border-box; }
-.role-tag-icon { width:20px; height:20px; flex-shrink:0; }
+.role-tag { display:inline-flex; align-items:center; gap:12px; padding:8px 16px 8px 8px; border-radius:20px; font-size:14px; font-weight:700; white-space:nowrap; height:36px; box-sizing:border-box; }
+.role-tag-icon { width:18px; height:18px; flex-shrink:0; }
 .role-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-.access-tag { display:inline-flex; align-items:center; padding:4px 10px; border-radius:20px; font-size:14px; font-weight:600; white-space:nowrap; }
+.access-tag { display:inline-flex; align-items:center; padding:8px 16px; border-radius:20px; font-size:14px; font-weight:600; white-space:nowrap; height:36px; box-sizing:border-box; }
 .ws-icon-cell { width:40px; height:40px; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; }
 
 /* GRID */
 .grid-view { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; padding:32px 32px 24px; }
-.grid-card { background:#fff; border-radius:12px; box-shadow:0 0 0 1.5px #F2F5F8; cursor:pointer; transition:box-shadow 0.15s; overflow:hidden; display:flex; flex-direction:column; }
-.grid-card:hover { box-shadow:0 0 0 1.5px #D6DDE5, 0 4px 16px rgba(37,99,235,0.07); }
+.grid-card { background:#FDFDFD; border-radius:12px; box-shadow:0 0 0 1px #EEF2F6; cursor:pointer; transition:box-shadow 0.15s, background 0.15s; overflow:hidden; display:flex; flex-direction:column; }
+.grid-card:hover { background:#ffffff; box-shadow:0 0 0 1px #DFDFED; }
 .gc-top { padding:16px 16px 0; display:flex; align-items:flex-start; justify-content:space-between; position:relative; }
 .gc-icon-wrap { width:56px; height:56px; border-radius:10px; background:#f3f4f6; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0; }
 .gc-icon-wrap.circle { background:none; border-radius:0; overflow:visible; }
@@ -286,7 +302,7 @@ tbody tr.ctx-open .more-btn svg path { fill:#323232; }
 .gc-actions { display:flex; align-items:center; gap:2px; opacity:0; transition:opacity 0.1s; flex-shrink:0; }
 .grid-card:hover .gc-actions, .gc-actions.star-active { opacity:1; }
 .gc-star-btn, .gc-more-btn { width:32px; height:32px; display:flex; align-items:center; justify-content:center; border:none; background:none; cursor:pointer; border-radius:6px; transition:background 0.1s; padding:0; }
-.gc-star-btn:hover, .gc-more-btn:hover { background:#EEF3FB; }
+.gc-star-btn:hover, .gc-more-btn:hover { background:#F5F6F9; }
 .gc-footer .role-tag { display:none; }
 
 /* CTX MENU */
@@ -319,9 +335,6 @@ tbody tr.ctx-open .more-btn svg path { fill:#323232; }
 .btn-cancel { padding:7px 15px; border:1px solid var(--border); border-radius:7px; background:#fff; font-size:13px; font-weight:500; cursor:pointer; color:var(--text-secondary); font-family:inherit; transition:background 0.1s; }
 .btn-cancel:hover { background:var(--row-hover); }
 
-.empty-state { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 32px; color:var(--text-muted); text-align:center; gap:8px; }
-.empty-state p { font-size:14px; font-weight:600; }
-.empty-state span { font-size:13px; }
 .hidden { display:none !important; }
 
 @keyframes fadeIn { from{opacity:0;transform:translateY(-3px)} to{opacity:1;transform:translateY(0)} }
@@ -332,7 +345,7 @@ tbody tr.ctx-open .more-btn svg path { fill:#323232; }
 
 <aside class="sidebar">
   <div class="sidebar-top">
-    <div class="logo">Bronte <span class="beta">BETA</span></div>
+    <div class="logo"><svg width="72" height="28" viewBox="0 0 72 28" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="21" font-family="Aleo, serif" font-size="24" font-weight="700" fill="#323232" letter-spacing="-0.2">Bronte</text></svg><svg width="40" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="0.5" width="39" height="19" rx="3.5" stroke="#8F8F8F"/><path d="M6.75707 13.5V6.22727H9.78974C10.3342 6.22727 10.79 6.30421 11.1569 6.4581C11.5262 6.61198 11.8032 6.82741 11.9879 7.1044C12.1749 7.38139 12.2684 7.70218 12.2684 8.06676C12.2684 8.34375 12.2104 8.59115 12.0944 8.80895C11.9784 9.02438 11.8186 9.20312 11.615 9.34517C11.4114 9.48722 11.1759 9.58665 10.9083 9.64347V9.71449C11.2019 9.72869 11.473 9.808 11.7216 9.95241C11.9725 10.0968 12.1737 10.2981 12.3252 10.5561C12.4768 10.8118 12.5525 11.1148 12.5525 11.4652C12.5525 11.8558 12.4531 12.205 12.2542 12.5128C12.0554 12.8182 11.7677 13.0597 11.3913 13.2372C11.0149 13.4124 10.558 13.5 10.0206 13.5H6.75707ZM8.51488 12.0831H9.60153C9.98268 12.0831 10.2632 12.0109 10.4431 11.8665C10.6254 11.7221 10.7166 11.5208 10.7166 11.2628C10.7166 11.0758 10.6728 10.9148 10.5852 10.7798C10.4976 10.6425 10.3733 10.5372 10.2123 10.4638C10.0513 10.388 9.85839 10.3501 9.63349 10.3501H8.51488V12.0831ZM8.51488 9.21733H9.48789C9.67965 9.21733 9.85011 9.18537 9.99925 9.12145C10.1484 9.05753 10.2644 8.9652 10.3473 8.84446C10.4325 8.72372 10.4751 8.57812 10.4751 8.40767C10.4751 8.16383 10.3887 7.97206 10.2159 7.83239C10.0431 7.69271 9.80986 7.62287 9.5163 7.62287H8.51488V9.21733ZM13.7977 13.5V6.22727H18.8687V7.65483H15.5555V9.14631H18.6095V10.5774H15.5555V12.0724H18.8687V13.5H13.7977ZM20.1316 7.65483V6.22727H26.2787V7.65483H24.0734V13.5H22.3404V7.65483H20.1316ZM28.2021 13.5H26.3129L28.7667 6.22727H31.1069L33.5608 13.5H31.6716L29.9635 8.05966H29.9066L28.2021 13.5ZM27.95 10.6378H31.8988V11.973H27.95V10.6378Z" fill="#8F8F8F"/></svg></div>
     <div class="sidebar-section-label">My Workspace</div>
     <div class="nav-group">
       <div class="nav-item" id="nav-recent" onclick="navigate('recent')">
@@ -394,7 +407,7 @@ tbody tr.ctx-open .more-btn svg path { fill:#323232; }
     <input class="modal-input" id="doc-name-input" type="text" placeholder="e.g. Introduction to Marketing">
     <label class="modal-label">Document type</label>
     <div class="doc-type-grid">
-      <div class="doc-type-option selected" onclick="selectType(this)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><div class="doc-type-label">Online Textbook</div><div class="doc-type-desc">Chapters, sections & media</div></div>
+      <div class="doc-type-option selected" onclick="selectType(this)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#36609E" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><div class="doc-type-label">Online Textbook</div><div class="doc-type-desc">Chapters, sections & media</div></div>
       <div class="doc-type-option" onclick="selectType(this)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><div class="doc-type-label">Presentation</div><div class="doc-type-desc">Slide-based classroom deck</div></div>
       <div class="doc-type-option" onclick="selectType(this)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><div class="doc-type-label">Assessment</div><div class="doc-type-desc">Quizzes and evaluations</div></div>
       <div class="doc-type-option" onclick="selectType(this)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg><div class="doc-type-label">Lesson Plan</div><div class="doc-type-desc">Structured classroom guide</div></div>
@@ -407,7 +420,7 @@ tbody tr.ctx-open .more-btn svg path { fill:#323232; }
 </div>
 
 <script>
-const WORKSPACES=[{id:'business',label:'Business',color:'#1d4ed8'},{id:'chemistry',label:'Chemistry',color:'#0369a1'},{id:'intlabs',label:'Interactive Labs',color:'#0284c7'},{id:'economics',label:'Economics',color:'#1e40af'},{id:'math',label:'Math & ECS',color:'#2563eb'},{id:'pearson',label:'Pearson Virtual Schools…',color:'#0891b2'},{id:'statistics',label:'Statistics: Informed Data',color:'#1d4ed8'},{id:'review',label:'Review Materials',color:'#1e3a8a'},{id:'assessment',label:'Assessment Tools',color:'#3b82f6'},{id:'edinsights',label:'Educational Insights',color:'#0369a1'},{id:'ilm',label:'Interactive Learning Module',color:'#0284c7'},{id:'curriculum',label:'Curriculum Development',color:'#1d4ed8'},{id:'data',label:'Data Analysis Resources',color:'#1e40af'},{id:'visual',label:'Visual Arts',color:'#2563eb'},{id:'digital',label:'Digital Media',color:'#0891b2'},{id:'global',label:'Global Studies',color:'#1e3a8a'}];
+const WORKSPACES=[{id:'business',label:'Business',color:'#36609E'},{id:'chemistry',label:'Chemistry',color:'#0369a1'},{id:'intlabs',label:'Interactive Labs',color:'#0284c7'},{id:'economics',label:'Economics',color:'#1e40af'},{id:'math',label:'Math & ECS',color:'#36609E'},{id:'pearson',label:'Pearson Virtual Schools…',color:'#0891b2'},{id:'statistics',label:'Statistics: Informed Data',color:'#36609E'},{id:'review',label:'Review Materials',color:'#1e3a8a'},{id:'assessment',label:'Assessment Tools',color:'#3b82f6'},{id:'edinsights',label:'Educational Insights',color:'#0369a1'},{id:'ilm',label:'Interactive Learning Module',color:'#0284c7'},{id:'curriculum',label:'Curriculum Development',color:'#36609E'},{id:'data',label:'Data Analysis Resources',color:'#1e40af'},{id:'visual',label:'Visual Arts',color:'#36609E'},{id:'digital',label:'Digital Media',color:'#0891b2'},{id:'global',label:'Global Studies',color:'#1e3a8a'}];
 
 const BIZ_PROJECTS=[
   {name:'Marketing Management: Analysis, Planning, Implementation, and Control',owner:'Wyatt Moran',date:'Nov 3, 2022'},
@@ -450,36 +463,36 @@ const RECENT_DOCS=[
 
 const ADMIN_ACCOUNTS=[
   {name:'Laura Driesdale', role:'Admin',    roleColor:'#7c3aed',access:'Super Admin',accessColor:'#7c3aed',date:'Nov 3, 2022', initials:'LD',avatarBg:'#6d28d9'},
-  {name:'Katie Sims',      role:'Owner',    roleColor:'#9333ea',access:'Editor +2',  accessColor:'#2563eb',date:'Jan 15, 2023',initials:'KS',avatarBg:'#7c3aed'},
+  {name:'Katie Sims',      role:'Owner',    roleColor:'#9333ea',access:'Editor +2',  accessColor:'#36609E',date:'Jan 15, 2023',initials:'KS',avatarBg:'#7c3aed'},
   {name:'Ricky Smith',     role:'Manager',  roleColor:'#dc2626',access:'Viewer +2',  accessColor:'#16a34a',date:'Dec 24, 2022',initials:'RS',avatarBg:'#b91c1c'},
   {name:'Lindsay Schaefer',role:'Admin',    roleColor:'#7c3aed',access:'Super Admin',accessColor:'#7c3aed',date:'Oct 1, 2022', initials:'LS',avatarBg:'#6d28d9'},
   {name:'Alex Buckmaster', role:'Viewer',   roleColor:'#16a34a',access:'Viewer',     accessColor:'#16a34a',date:'Feb 18, 2023',initials:'AB',avatarBg:'#15803d'},
-  {name:'Paula Mora',      role:'Creator',  roleColor:'#2563eb',access:'Editor',     accessColor:'#2563eb',date:'Apr 2, 2023', initials:'PM',avatarBg:'#1d4ed8'},
-  {name:'Stephanie Nicol', role:'Developer',roleColor:'#ea580c',access:'Editor',     accessColor:'#2563eb',date:'Sept 12, 2022',initials:'SN',avatarBg:'#c2410c'},
-  {name:'David Elson',     role:'Developer',roleColor:'#ea580c',access:'Editor',     accessColor:'#2563eb',date:'Mar 9, 2023', initials:'DE',avatarBg:'#c2410c'},
-  {name:'Eddie Lake',      role:'Developer',roleColor:'#ea580c',access:'Editor',     accessColor:'#2563eb',date:'Nov 14, 2022',initials:'EL',avatarBg:'#c2410c'},
-  {name:'Kathy Pacheco',   role:'Viewer',   roleColor:'#16a34a',access:'Editor +2',  accessColor:'#2563eb',date:'May 21, 2023',initials:'KP',avatarBg:'#15803d'},
+  {name:'Paula Mora',      role:'Creator',  roleColor:'#36609E',access:'Editor',     accessColor:'#36609E',date:'Apr 2, 2023', initials:'PM',avatarBg:'#36609E'},
+  {name:'Stephanie Nicol', role:'Developer',roleColor:'#ea580c',access:'Editor',     accessColor:'#36609E',date:'Sept 12, 2022',initials:'SN',avatarBg:'#c2410c'},
+  {name:'David Elson',     role:'Developer',roleColor:'#ea580c',access:'Editor',     accessColor:'#36609E',date:'Mar 9, 2023', initials:'DE',avatarBg:'#c2410c'},
+  {name:'Eddie Lake',      role:'Developer',roleColor:'#ea580c',access:'Editor',     accessColor:'#36609E',date:'Nov 14, 2022',initials:'EL',avatarBg:'#c2410c'},
+  {name:'Kathy Pacheco',   role:'Viewer',   roleColor:'#16a34a',access:'Editor +2',  accessColor:'#36609E',date:'May 21, 2023',initials:'KP',avatarBg:'#15803d'},
 ];
 
 const ADMIN_TEAMS=[
   {name:'Content Development',  role:'Admin',    roleColor:'#7c3aed',access:'Super Admin',accessColor:'#7c3aed',date:'Nov 3, 2022'},
-  {name:'Curriculum Design',    role:'Owner',    roleColor:'#9333ea',access:'Editor +2',  accessColor:'#2563eb',date:'Jan 15, 2023'},
+  {name:'Curriculum Design',    role:'Owner',    roleColor:'#9333ea',access:'Editor +2',  accessColor:'#36609E',date:'Jan 15, 2023'},
   {name:'Digital Publishing',   role:'Manager',  roleColor:'#dc2626',access:'Viewer +2',  accessColor:'#16a34a',date:'Dec 24, 2022'},
   {name:'Assessment Writing',   role:'Admin',    roleColor:'#7c3aed',access:'Super Admin',accessColor:'#7c3aed',date:'Oct 1, 2022'},
   {name:'Media & Interactives', role:'Viewer',   roleColor:'#16a34a',access:'Viewer',     accessColor:'#16a34a',date:'Feb 18, 2023'},
-  {name:'Science Editorial',    role:'Creator',  roleColor:'#2563eb',access:'Editor',     accessColor:'#2563eb',date:'Apr 2, 2023'},
-  {name:'Platform Engineering', role:'Developer',roleColor:'#ea580c',access:'Editor',     accessColor:'#2563eb',date:'Sept 12, 2022'},
-  {name:'UX & Accessibility',   role:'Developer',roleColor:'#ea580c',access:'Editor',     accessColor:'#2563eb',date:'Mar 9, 2023'},
+  {name:'Science Editorial',    role:'Creator',  roleColor:'#36609E',access:'Editor',     accessColor:'#36609E',date:'Apr 2, 2023'},
+  {name:'Platform Engineering', role:'Developer',roleColor:'#ea580c',access:'Editor',     accessColor:'#36609E',date:'Sept 12, 2022'},
+  {name:'UX & Accessibility',   role:'Developer',roleColor:'#ea580c',access:'Editor',     accessColor:'#36609E',date:'Mar 9, 2023'},
 ];
 
 const ADMIN_WORKSPACES=[
-  {name:'Business Fundamentals',        abbr:'BF',color:'#1d4ed8',access:'Super Admin',accessColor:'#7c3aed',date:'Nov 3, 2022'},
-  {name:'Chemistry & Life Sciences',    abbr:'CL',color:'#0369a1',access:'Editor +2',  accessColor:'#2563eb',date:'Jan 15, 2023'},
+  {name:'Business Fundamentals',        abbr:'BF',color:'#36609E',access:'Super Admin',accessColor:'#7c3aed',date:'Nov 3, 2022'},
+  {name:'Chemistry & Life Sciences',    abbr:'CL',color:'#0369a1',access:'Editor +2',  accessColor:'#36609E',date:'Jan 15, 2023'},
   {name:'Interactive Labs',             abbr:'IL',color:'#0284c7',access:'Viewer +2',  accessColor:'#16a34a',date:'Dec 24, 2022'},
   {name:'Economics & Policy',           abbr:'EP',color:'#1e40af',access:'Super Admin',accessColor:'#7c3aed',date:'Oct 1, 2022'},
-  {name:'Math & Engineering',           abbr:'ME',color:'#2563eb',access:'Viewer',     accessColor:'#16a34a',date:'Feb 18, 2023'},
-  {name:'Pearson Virtual Schools',      abbr:'PV',color:'#0891b2',access:'Editor',     accessColor:'#2563eb',date:'Apr 2, 2023'},
-  {name:'Assessment & Review',          abbr:'AR',color:'#1e3a8a',access:'Editor',     accessColor:'#2563eb',date:'Sept 12, 2022'},
+  {name:'Math & Engineering',           abbr:'ME',color:'#36609E',access:'Viewer',     accessColor:'#16a34a',date:'Feb 18, 2023'},
+  {name:'Pearson Virtual Schools',      abbr:'PV',color:'#0891b2',access:'Editor',     accessColor:'#36609E',date:'Apr 2, 2023'},
+  {name:'Assessment & Review',          abbr:'AR',color:'#1e3a8a',access:'Editor',     accessColor:'#36609E',date:'Sept 12, 2022'},
 ];
 
 const ADMIN_PROJECTS=[
@@ -548,11 +561,12 @@ function renderRows(){
 
   const colMap={'Name':'name','Owner':'owner','Last Modified':'date','Shared On':'date'};
   const filtered=applyF(allRows,{owner:S.filters.owner}).filter(r=>{
-    if(!S.filters.dateStart&&!S.filters.dateEnd) return true;
+    const sk='ds_lastmod',ek='de_lastmod';
+    if(!S.filters[sk]&&!S.filters[ek]) return true;
     const d=new Date(r.date); d.setHours(0,0,0,0);
     const rk=dpKey(d.getFullYear(),d.getMonth(),d.getDate());
-    if(S.filters.dateStart&&rk<S.filters.dateStart) return false;
-    if(S.filters.dateEnd&&rk>S.filters.dateEnd) return false;
+    if(S.filters[sk]&&rk<S.filters[sk]) return false;
+    if(S.filters[ek]&&rk>S.filters[ek]) return false;
     return true;
   });
   const sortedRows=sortRows(filtered,colMap);
@@ -560,11 +574,10 @@ function renderRows(){
   if(!tbody) return;
   tbody.innerHTML=sortedRows.length ? sortedRows.map(d=>{
     const ac=ownerColor(d.owner);
-    return`<tr class="spacer-row"><td colspan="4" style="height:8px;background:#F9FAFB;padding:0"></td></tr>
-    <tr><td><div class="doc-cell"><div class="doc-icon">${fileIcon()}</div><span class="doc-name">${d.name}</span></div></td>
+    return`<tr class="spacer"><td colspan="4"></td></tr><tr><td><div class="doc-cell"><div class="doc-icon">${fileIcon()}</div><span class="doc-name">${d.name}</span></div></td>
     <td class="owner-cell"><div class="owner-wrap"><div class="mini-avatar" style="background:${ac}">${ini(d.owner)}</div><span>${d.owner}</span></div></td>
     <td class="date-cell">${d.date}</td>${rowActions(prefix,d._i)}</tr>`;
-  }).join('') : `<tr><td colspan="4"><div class="empty-state"><p>No results</p><span>Try adjusting your filters</span></div></td></tr>`;
+  }).join('') : `<tr><td colspan="4"><div class="empty-state">${EMPTY_SVG}<span class="empty-state-caption">Nothing to see here....yet!</span></div></td></tr>`;
   // re-bind row hover
   tbody.querySelectorAll('tr').forEach(tr=>{
     const ra=tr.querySelector('.row-actions'); if(!ra)return;
@@ -602,7 +615,7 @@ function render(){
 }
 
 // ── HELPERS ──
-function ownerColor(n){const p=['#1d4ed8','#7c3aed','#0891b2','#059669','#b45309','#be123c','#9333ea','#c2410c','#0f766e','#15803d'];let h=0;for(const c of n)h=(h*31+c.charCodeAt(0))%p.length;return p[h];}
+function ownerColor(n){const p=['#36609E','#7c3aed','#0891b2','#059669','#b45309','#be123c','#9333ea','#c2410c','#0f766e','#15803d'];let h=0;for(const c of n)h=(h*31+c.charCodeAt(0))%p.length;return p[h];}
 function ini(n){return n.split(' ').slice(0,2).map(s=>s[0]).join('');}
 function sortArrow(col){
   const isSorted = S.sortCol === col;
@@ -624,7 +637,36 @@ function sortRows(rows, colMap){
     return S.sortDir === 'asc' ? cmp : -cmp;
   });
 }
-function fileIcon(){return`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;}
+const FILE_ICON_SVG=`<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="40" height="40" rx="8" fill="white"/>
+<rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#708ACB" stroke-opacity="0.2"/>
+<path d="M13.25 13C13.25 11.7695 14.2344 10.75 15.5 10.75H21.125V15.25C21.125 15.8828 21.6172 16.375 22.25 16.375H26.75V26.5C26.75 27.7656 25.7305 28.75 24.5 28.75H15.5C14.2344 28.75 13.25 27.7656 13.25 26.5V13ZM26.75 15.25H22.25V10.75L26.75 15.25Z" fill="#708ACB"/>
+</svg>`;
+function fileIcon(){ return FILE_ICON_SVG; }
+
+const EMPTY_SVG=`<svg width="393" height="368" viewBox="0 0 393 368" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.519475" fill-rule="evenodd" clip-rule="evenodd" d="M304.503 96.7129C328.313 118.798 376.37 153.984 348.444 189.229C320.519 224.474 277.776 302.529 235.566 311.912C193.355 321.296 202.176 241.76 120.062 241.862C37.9479 241.963 14.485 193.598 44.42 160.353C74.3551 127.108 94.9071 115.461 119.749 117.161C144.592 118.861 157.156 115.114 187.721 63.6581C218.286 12.2027 262.37 15.9763 281.861 34.7683C301.353 53.5602 280.692 74.6274 304.503 96.7129Z" stroke="#F1F1F3" stroke-width="5.52705"/>
+<path opacity="0.519475" fill-rule="evenodd" clip-rule="evenodd" d="M86.8932 18.3078C70.537 23.8996 59.7913 36.009 65.1641 52.63C70.537 69.2509 81.5045 83.7013 92.585 83.7013C103.665 83.7013 126.266 56.943 120.749 37.8549C115.231 18.7668 103.249 12.7161 86.8932 18.3078Z" stroke="#F1F1F3" stroke-width="5.52705"/>
+<path d="M57.8359 209.099H347.016" stroke="#D9D9DE" stroke-width="5.52705" stroke-linecap="round"/>
+<path d="M363.329 209.099H372.226" stroke="#D9D9DE" stroke-width="5.52705" stroke-linecap="round"/>
+<rect x="77.1146" y="192.786" width="66.7339" height="14.8297" rx="2.76353" fill="#F1F1F3"/>
+<path d="M84.5294 200.201H106.774" stroke="#D9D9DE" stroke-width="5.52705" stroke-linecap="round"/>
+<path d="M76.1413 103.823C85.736 95.7985 96.5824 104.13 105.165 123.479C113.401 142.046 118.593 168.406 118.593 193.756C118.593 195.505 116.095 195.812 115.671 194.116C111.276 176.527 105.024 162.047 97.0708 149.44C93.9535 144.498 90.6732 139.988 86.9529 135.386C85.5344 133.631 84.1196 131.943 82.3559 129.885C82.3473 129.875 79.1311 126.139 78.3084 125.167C72.0955 117.828 70.1897 114.151 71.5668 109.853C72.2251 107.798 73.7229 105.845 76.1413 103.823Z" fill="#D9D9DE"/>
+<path d="M96.3084 63.9691C108.614 61.7812 116.027 76.6675 119.401 104.711C122.217 128.121 122.083 160.348 119.447 194.591C119.306 196.418 116.627 196.416 116.49 194.588C114.53 168.604 109.781 145.632 102.531 122.499C99.8666 113.998 89.9281 86.3648 88.659 81.4006C85.951 70.8078 87.897 65.4647 96.3084 63.9691Z" fill="#D9D9DE"/>
+<path d="M116.341 186.081C112.286 166.368 105.238 137.548 85.3392 114.026" stroke="#F6F7F8" stroke-width="2.76353"/>
+<path d="M118.446 184.358C118.446 164.628 112.279 103.068 100.045 75.7549" stroke="#F6F7F8" stroke-width="2.76353"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M97.4659 175.494C96.9045 172.125 99.5024 169.059 102.918 169.059H123.977C127.393 169.059 129.991 172.125 129.429 175.494L126.823 191.134C126.378 193.799 124.073 195.752 121.371 195.752H105.524C102.823 195.752 100.517 193.799 100.073 191.134L97.4659 175.494Z" fill="#F1F1F3"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M97.4752 172.036L129.123 177.317L130.453 169.172L97.4752 172.036Z" fill="#D9D9DE"/>
+<rect x="91.9445" y="161.644" width="43.0063" height="10.3808" rx="5.19041" fill="#F1F1F3"/>
+<path d="M311.425 192.786H315.132C321.275 192.786 326.254 187.883 326.254 181.835V174.534C326.254 171.51 323.765 169.059 320.693 169.059H313.278" stroke="#D9D9DE" stroke-width="11.0541"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M315.531 167.575C315.883 162.771 312.08 158.678 307.262 158.678H287.41C282.592 158.678 278.789 162.771 279.142 167.575L281.515 199.932C281.833 204.264 285.44 207.616 289.784 207.616H304.889C309.232 207.616 312.839 204.264 313.157 199.932L315.531 167.575Z" fill="#F1F1F3"/>
+<path d="M140.882 148.566C140.882 139.408 148.306 131.985 157.464 131.985H268.15C277.307 131.985 284.731 139.409 284.731 148.566V220.963H140.882V148.566Z" fill="#DEE5F1"/>
+<path d="M121.604 220.963H304.01V220.963C304.01 229.154 297.37 235.793 289.18 235.793H136.434C128.243 235.793 121.604 229.154 121.604 220.963V220.963Z" fill="#6F85A6"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M176.474 158.679H249.14V161.645H176.474V158.679Z" fill="#6F85A6"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M176.474 170.543H249.14V173.509H176.474V170.543Z" fill="#6F85A6"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M176.474 182.407H249.14V185.373H176.474V182.407Z" fill="#6F85A6"/>
+<rect x="176.474" y="194.271" width="40.0403" height="2.96595" fill="#6F85A6"/>
+</svg>`;
 
 const TEAM_ICON_SVG=`<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#ct)"><rect width="40" height="40" rx="20" fill="#939CB5"/><path d="M24.6201 21.1602C26.6301 21.5101 29 22.4601 29 24V26H26V24C26 22.8201 25.4501 21.8901 24.6201 21.1602ZM18 20.999C20 20.999 24 21.9992 24 23.999V25.998H12V23.999C12 21.9992 16 20.999 18 20.999ZM17.999 13C19.659 13 20.9893 14.3401 20.9893 16C20.9891 17.6598 19.6589 19 17.999 19C16.3393 18.9998 14.9991 17.6597 14.999 16C14.999 14.3402 16.3392 13.0002 17.999 13ZM22.999 13C24.659 13 25.9893 14.3401 25.9893 16C25.9891 17.6598 24.6589 19 22.999 19C22.6791 19 22.3688 18.9494 22.0889 18.8594C22.6488 18.0395 22.9892 17.0698 22.9893 16C22.9893 14.9301 22.6589 13.9496 22.0889 13.1396C22.3688 13.0497 22.6791 13 22.999 13Z" fill="white"/></g><defs><clipPath id="ct"><rect width="40" height="40" rx="20" fill="white"/></clipPath></defs></svg>`;
 const TEAM_ICON_LG=`<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#ct56)"><rect width="56" height="56" rx="28" fill="#939CB5"/><path d="M34.4681 29.6243C37.2821 30.1141 40.6 31.4441 40.6 33.6V36.4H36.4V33.6C36.4 31.9481 35.6301 30.6461 34.4681 29.6243ZM25.2 29.3986C28 29.3986 33.6 30.7989 33.6 33.5986V35.9972H16.8V33.5986C16.8 30.7989 22.4 29.3986 25.2 29.3986ZM25.1986 18.2C27.5226 18.2 29.3851 20.0761 29.3849 22.4C29.3847 24.7237 27.5225 26.6 25.1986 26.6C22.875 26.5997 20.9987 24.7236 20.9986 22.4C20.9986 20.0763 22.8749 18.2003 25.1986 18.2ZM32.1986 18.2C34.5226 18.2 36.3851 20.0761 36.3849 22.4C36.3847 24.7237 34.5225 26.6 32.1986 26.6C31.7508 26.6 31.3163 26.5292 30.9245 26.4032C31.7083 25.2553 32.1849 23.8977 32.185 22.4C32.185 20.9021 31.7225 19.5294 30.9245 18.3954C31.3163 18.2696 31.7508 18.2 32.1986 18.2Z" fill="white"/></g><defs><clipPath id="ct56"><rect width="56" height="56" rx="28" fill="white"/></clipPath></defs></svg>`;
@@ -635,7 +677,13 @@ function wsIconLg(color){
   return`<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="56" height="56" rx="11" fill="${color}"/><path d="M18.5006 33.6V17.309H25.2938C26.5135 17.309 27.5344 17.481 28.3563 17.8262C29.1836 18.1709 29.804 18.6535 30.2178 19.2738C30.6366 19.894 30.846 20.6129 30.846 21.4295C30.846 22.05 30.7161 22.6035 30.4563 23.0898C30.1965 23.5747 29.8336 23.975 29.3676 24.2904C28.9063 24.6053 28.3787 24.834 27.785 24.9763V25.1401C28.4559 25.1721 29.0813 25.358 29.6611 25.6979C30.2461 26.0378 30.7241 26.5273 31.0951 27.1665C31.4661 27.8008 31.6516 28.5569 31.6516 29.4348C31.6516 30.3166 31.4215 31.1059 30.9613 31.8027C30.5011 32.4941 29.8259 33.0404 28.9358 33.4414C28.0456 33.838 26.9745 34.0365 25.7226 34.0365H18.5006V33.6ZM22.4381 30.4262H25.0731C25.9265 30.4262 26.5644 30.2424 26.9869 29.8748C27.4141 29.5072 27.6277 29.0167 27.6277 28.4033C27.6277 27.9673 27.527 27.5858 27.3256 27.2586C27.1242 26.9268 26.8376 26.669 26.4658 26.4853C26.0987 26.2969 25.6618 26.2027 25.1551 26.2027H22.4381V30.4262ZM22.4381 23.6073H24.7686C25.2015 23.6073 25.5823 23.5337 25.9111 23.3866C26.2445 23.2394 26.5079 23.0262 26.7013 22.7468C26.8994 22.4669 26.9985 22.125 26.9985 21.7209C26.9985 21.1463 26.8036 20.6929 26.4138 20.3608C26.0239 20.0286 25.4988 19.8625 24.8385 19.8625H22.4381V23.6073ZM33.5996 33.6V21.3818H37.4896V33.6H33.5996ZM35.5486 19.9578C34.9922 19.9578 34.5132 19.7775 34.1116 19.4169C33.7101 19.0515 33.5093 18.6109 33.5093 18.0952C33.5093 17.5844 33.7101 17.1466 34.1116 16.7812C34.5132 16.411 34.9922 16.2259 35.5486 16.2259C36.1097 16.2259 36.5887 16.411 36.9855 16.7812C37.387 17.1466 37.5878 17.5844 37.5878 18.0952C37.5878 18.6109 37.387 19.0515 36.9855 19.4169C36.5887 19.7775 36.1097 19.9578 35.5486 19.9578Z" fill="white"/></svg>`;
 }
 
-const PROJ_ICON_SVG=`<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="8" fill="white"/><rect x="1" y="1" width="38" height="38" rx="7" stroke="#636C85" stroke-opacity="0.2" stroke-width="2"/><path opacity="0.25" d="M14.3335 13C14.3335 11.8954 15.2289 11 16.3335 11H23.6669C24.7714 11 25.6669 11.8954 25.6669 13V13.4286H14.3335V13Z" fill="#323232"/><path opacity="0.5" d="M12.7144 16.2378C12.7144 15.1332 13.6098 14.2378 14.7144 14.2378H25.2859C26.3904 14.2378 27.2859 15.1332 27.2859 16.2378V16.6664H12.7144V16.2378Z" fill="#323232"/><path opacity="0.75" fill-rule="evenodd" clip-rule="evenodd" d="M11.0952 19.4761C11.0952 18.3715 11.9906 17.4761 13.0952 17.4761H26.9048C28.0094 17.4761 28.9048 18.3715 28.9048 19.4761V25.9999C28.9048 27.1045 28.0094 27.9999 26.9048 27.9999H13.0952C11.9906 27.9999 11.0952 27.1045 11.0952 25.9999L11.0952 19.4761Z" fill="#323232"/></svg>`;
+const PROJ_ICON_SVG=`<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="40" height="40" rx="8" fill="white"/>
+<rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#636C85" stroke-opacity="0.2"/>
+<path opacity="0.25" d="M14.3335 13C14.3335 11.8954 15.2289 11 16.3335 11H23.6669C24.7714 11 25.6669 11.8954 25.6669 13V13.4286H14.3335V13Z" fill="#636C85"/>
+<path opacity="0.5" d="M12.7141 16.2378C12.7141 15.1332 13.6095 14.2378 14.7141 14.2378H25.2856C26.3902 14.2378 27.2856 15.1332 27.2856 16.2378V16.6664H12.7141V16.2378Z" fill="#636C85"/>
+<path opacity="0.75" fill-rule="evenodd" clip-rule="evenodd" d="M11.0952 19.4761C11.0952 18.3715 11.9906 17.4761 13.0952 17.4761H26.9048C28.0094 17.4761 28.9048 18.3715 28.9048 19.4761V25.9999C28.9048 27.1045 28.0094 27.9999 26.9048 27.9999H13.0952C11.9906 27.9999 11.0952 27.1045 11.0952 25.9999L11.0952 19.4761Z" fill="#636C85"/>
+</svg>`;
 
 const ROLE_STYLES = {
   'Admin':     { bg:'#F7F1FD', color:'#540089', icon:`<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" rx="10" fill="#540089"/><path d="M10 4.5L5.5 6.5V9.5C5.5 12.275 7.42 14.87 10 15.5C12.58 14.87 14.5 12.275 14.5 9.5V6.5L10 4.5Z" fill="white"/></svg>` },
@@ -701,7 +749,7 @@ function applyDefaultSort(view){
 // ── DATE PICKER ──
 const DP = (function(){
   const now = new Date();
-  return { viewYear:now.getFullYear(), viewMonth:now.getMonth(), hoverDay:null, preset:null };
+  return { viewYear:now.getFullYear(), viewMonth:now.getMonth(), hoverDay:null, preset:null, activeKey:null };
 })();
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const DAYS = ['Su','Mo','Tu','We','Th','Fr','Sa'];
@@ -718,26 +766,7 @@ function dpFmt(d){ // Date → "Mon D, YYYY"
 function dpKey(y,m,d){ return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`; }
 function dpFromKey(k){ const [y,m,d]=k.split('-').map(Number); return new Date(y,m-1,d); }
 
-function renderDpMonth(year, month, startKey, endKey, hoverKey){
-  const firstDay = new Date(year, month, 1).getDay();
-  const daysInMonth = new Date(year, month+1, 0).getDate();
-  const today = new Date(); today.setHours(0,0,0,0);
-  const todayKey = dpKey(today.getFullYear(), today.getMonth(), today.getDate());
-
-  let cells = '';
-  // empty leading cells
-  for(let i=0;i<firstDay;i++) cells+=`<div class="dp-day dp-empty"></div>`;
-  for(let d=1;d<=daysInMonth;d++){
-    const k = dpKey(year,month,d);
-    let cls = 'dp-day';
-    const effectiveEnd = endKey||(hoverKey&&startKey&&hoverKey>startKey?hoverKey:null);
-    if(k===startKey && k===endKey) cls+=' dp-selected';
-    else if(k===startKey) cls+= endKey||effectiveEnd?' dp-range-start':' dp-selected';
-    else if(k===endKey) cls+=' dp-range-end';
-    else if(startKey && effectiveEnd && k>startKey && k<effectiveEnd) cls+=' dp-in-range';
-    if(k===todayKey) cls+=' dp-today';
-    cells+=`<div class="${cls}" data-key="${k}" onclick="dpDayClick('${k}')" onmouseenter="dpHover('${k}')">${d}</div>`;
-  }
+function dpBuildMonth(year, month, cells){
   const dows = DAYS.map(d=>`<div class="dp-dow">${d}</div>`).join('');
   return`<div class="dp-month">
     <div class="dp-month-header">
@@ -747,26 +776,34 @@ function renderDpMonth(year, month, startKey, endKey, hoverKey){
   </div>`;
 }
 
-function dpRender(){
-  const el = document.getElementById('dp-calendar');
-  if(!el||!el.closest('.pill-dropdown.open')) return;
-  const start = S.filters.dateStart||null;
-  const end   = S.filters.dateEnd||null;
-  const hover = DP.hoverDay;
+// Active date-pill key for the open calendar
+function dpSK(){ return 'ds_'+(DP.activeKey||'default'); }
+function dpEK(){ return 'de_'+(DP.activeKey||'default'); }
+
+function dpBuildCal(key){
+  const sk='ds_'+key, ek='de_'+key;
+  const start=S.filters[sk]||null, end=S.filters[ek]||null, hover=DP.hoverDay;
   const y1=DP.viewYear, m1=DP.viewMonth;
   const y2=m1===11?y1+1:y1, m2=m1===11?0:m1+1;
-  const dowHtml=DAYS.map(d=>`<div class="dp-dow">${d}</div>`).join('');
-
+  const dows=DAYS.map(d=>`<div class="dp-dow">${d}</div>`).join('');
   const nav=(dir,unit)=>`<button class="dp-month-nav" onclick="dpNav(${dir},'${unit}')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="${dir<0?'15 18 9 12 15 6':'9 18 15 12 9 6'}"/></svg></button>`;
 
-  const calHtml=`<div class="dp-cal-wrap">
+  // Range label strip
+  let rangeLabel='';
+  if(start||end){
+    const s=start?dpFmt(dpFromKey(start)):'…';
+    const e=end?dpFmt(dpFromKey(end)):'…';
+    rangeLabel=`<div class="dp-range-label"><span class="dp-range-chip ${start?'set':''}">${s}</span><svg width="16" height="8" viewBox="0 0 16 8"><line x1="0" y1="4" x2="16" y2="4" stroke="#cbd5e1" stroke-width="1.5"/></svg><span class="dp-range-chip ${end?'set':''}">${e}</span></div>`;
+  }
+
+  const cal=`<div class="dp-cal-wrap">
     <div class="dp-cal-col">
       <div class="dp-month-hdr">
         <div style="display:flex;gap:4px">${nav(-1,'year')}${nav(-1,'month')}</div>
         <span class="dp-month-name">${MONTHS[m1]} ${y1}</span>
         <div style="width:72px"></div>
       </div>
-      <div class="dp-dow-row">${dowHtml}</div>
+      <div class="dp-dow-row">${dows}</div>
       <div class="dp-grid">${dpMonthCells(y1,m1,start,end,hover)}</div>
     </div>
     <div class="dp-cal-col">
@@ -775,17 +812,30 @@ function dpRender(){
         <span class="dp-month-name">${MONTHS[m2]} ${y2}</span>
         <div style="display:flex;gap:4px">${nav(1,'month')}${nav(1,'year')}</div>
       </div>
-      <div class="dp-dow-row">${dowHtml}</div>
+      <div class="dp-dow-row">${dows}</div>
       <div class="dp-grid">${dpMonthCells(y2,m2,start,end,hover)}</div>
     </div>
   </div>`;
-
-  const footerHtml=`<div class="dp-footer">
-    <button class="dp-clear" onclick="dpClear()">CLEAR</button>
-    <button class="dp-apply" onclick="dpApply()">OK</button>
+  const ready=!!(start&&end);
+  const footer=`<div class="dp-footer">
+    ${rangeLabel}
+    <div class="dp-footer-btns">
+      <button class="dp-clear" onclick="dpClear()">Clear</button>
+      <button class="dp-apply${ready?' ready':''}" onclick="dpApply()">OK</button>
+    </div>
   </div>`;
+  return cal+footer;
+}
 
-  el.innerHTML = calHtml + footerHtml;
+function dpRenderKeyed(key){
+  const el=document.getElementById('dp-calendar-'+key);
+  if(!el) return;
+  el.innerHTML=dpBuildCal(key);
+}
+
+// dpRender refreshes whichever calendar is currently open
+function dpRender(){
+  if(DP.activeKey) dpRenderKeyed(DP.activeKey);
 }
 
 function dpMonthCells(year, month, startKey, endKey, hoverKey){
@@ -797,7 +847,7 @@ function dpMonthCells(year, month, startKey, endKey, hoverKey){
   for(let i=0;i<firstDay;i++) cells+=`<div class="dp-day dp-empty"></div>`;
   for(let d=1;d<=daysInMonth;d++){
     const k=dpKey(year,month,d);
-    const dow=new Date(year,month,d).getDay(); // 0=Sun, 6=Sat
+    const dow=new Date(year,month,d).getDay();
     const effectiveEnd=endKey||(hoverKey&&startKey&&!endKey&&hoverKey>startKey?hoverKey:null);
     let cls='dp-day';
     if(k===startKey&&k===endKey) cls+=' dp-selected';
@@ -816,11 +866,11 @@ function dpMonthCells(year, month, startKey, endKey, hoverKey){
 
 function dpDayClick(k){
   DP.preset=null;
-  if(!S.filters.dateStart||S.filters.dateEnd){
-    S.filters.dateStart=k; delete S.filters.dateEnd; DP.hoverDay=null;
+  if(!S.filters[dpSK()]||S.filters[dpEK()]){
+    S.filters[dpSK()]=k; delete S.filters[dpEK()]; DP.hoverDay=null;
   } else {
-    if(k<S.filters.dateStart){ S.filters.dateEnd=S.filters.dateStart; S.filters.dateStart=k; }
-    else S.filters.dateEnd=k;
+    if(k<S.filters[dpSK()]){ S.filters[dpEK()]=S.filters[dpSK()]; S.filters[dpSK()]=k; }
+    else S.filters[dpEK()]=k;
   }
   dpRender();
 }
@@ -834,74 +884,109 @@ function dpNav(dir, unit){
   }
   dpRender();
 }
-function dpClear(){ delete S.filters.dateStart; delete S.filters.dateEnd; DP.hoverDay=null; DP.preset=null; dpRender(); }
+function dpClear(){ delete S.filters[dpSK()]; delete S.filters[dpEK()]; DP.hoverDay=null; DP.preset=null; dpRender(); }
 function dpApply(){ closeAllPills(); render(); }
-function dpPreset(val){
-  DP.preset=val;
-  const end=new Date(); end.setHours(0,0,0,0);
-  const start=new Date(end);
-  if(val==='1w') start.setDate(start.getDate()-7);
-  else if(val==='1m') start.setMonth(start.getMonth()-1);
-  else if(val==='3m') start.setMonth(start.getMonth()-3);
-  else if(val==='6m') start.setMonth(start.getMonth()-6);
-  S.filters.dateStart=dpKey(start.getFullYear(),start.getMonth(),start.getDate());
-  S.filters.dateEnd=dpKey(end.getFullYear(),end.getMonth(),end.getDate());
-  DP.hoverDay=null;
-  // Navigate calendar to show the start month
-  DP.viewYear=start.getFullYear(); DP.viewMonth=start.getMonth();
-  dpRender();
-}
+
 
 function datePill(key, label){
-  const start = S.filters.dateStart;
-  const end   = S.filters.dateEnd;
+  const sk='ds_'+key, ek='de_'+key;
+  const start = S.filters[sk];
+  const end   = S.filters[ek];
   const active = !!(start||end);
   let disp = label;
   if(start&&end) disp=`${dpFmt(dpFromKey(start))} – ${dpFmt(dpFromKey(end))}`;
   else if(start) disp=`From ${dpFmt(dpFromKey(start))}`;
-  return`<div class="filter-pill ${active?'active':''} ${document.getElementById&&document.getElementById('dd-'+key)&&document.getElementById('dd-'+key).classList.contains('open')?'open':''}" id="pill-${key}" onclick="pillClick(event,'${key}')">
-    ${disp}<span class="pill-chevron"><svg width="8" height="5" viewBox="6 9 12 6" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
-    <div class="pill-dropdown" id="dd-${key}" onclick="event.stopPropagation()">
-      <div id="dp-calendar"></div>
+  return`<div class="filter-pill ${active?'active':''}" id="pill-${key}" onclick="pillClick(event,'${key}',true)">
+    <span style="overflow:hidden;text-overflow:ellipsis;min-width:0">${disp}</span><span class="pill-chevron"><svg width="8" height="5" viewBox="6 9 12 6" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+    <div class="pill-dropdown date-picker-dropdown" id="dd-${key}" onclick="event.stopPropagation()" style="min-width:620px">
+      <div id="dp-calendar-${key}"></div>
     </div>
   </div>`;
 }
+
+// Portal dropdown registry: key -> {opts, label}
+const PILL_OPTS = {};
 
 function pill(key,label,opts){
+  PILL_OPTS[key] = {opts, label};
   const active=S.filters[key];
   const sel = active instanceof Set ? active : new Set();
-  const count = sel.size;
-  const disp = count===0 ? label : count===1 ? [...sel][0] : `${label} (${count})`;
-  const isActive = count > 0;
-  const checkSvg = `<svg width="10" height="8" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-  const items = opts.map(o => {
-    const checked = sel.has(o);
-    return `<div class="pill-dd-item ${checked?'selected':''}" data-val="${o}" onclick="toggleFilter(event,'${key}','${o}')">
-      <span class="dd-checkbox">${checkSvg}</span>${o}
-    </div>`;
-  });
-  return`<div class="filter-pill ${isActive?'active':''}" id="pill-${key}" data-label="${label}" style="max-width:280px" onclick="pillClick(event,'${key}')">
-    <span style="overflow:hidden;text-overflow:ellipsis;min-width:0">${disp}</span><span class="pill-chevron"><svg width="8" height="5" viewBox="6 9 12 6" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
-    <div class="pill-dropdown" id="dd-${key}" onclick="event.stopPropagation()">
-      <div class="pill-dd-header"></div>
-      ${items.join('')}
-    </div>
+  const isActive = sel.size > 0;
+  const xSvg=`<svg width="8" height="8" viewBox="0 0 8 8" fill="none"><line x1="1" y1="1" x2="7" y2="7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="7" y1="1" x2="1" y2="7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+  let labelPart;
+  if(isActive){
+    const allVals=[...sel];
+    const PILL_USABLE=200, overflowBadgeW=36;
+    let shown=[], overflow=0, used=0;
+    for(let i=0;i<allVals.length;i++){
+      const approxW=allVals[i].length*7.5+38;
+      const remaining=allVals.length-i-1;
+      const budgetNeeded=approxW+(remaining>0?overflowBadgeW+4:0);
+      if(used+budgetNeeded<=PILL_USABLE||shown.length===0){ shown.push(allVals[i]); used+=approxW+4; }
+      else { overflow=allVals.length-shown.length; break; }
+    }
+    const chipHtml=shown.map(v=>`<span class="pill-chip">${v}<span class="pill-chip-x" onclick="removeChip(event,'${key}','${v}')">${xSvg}</span></span>`).join('');
+    const badgeHtml=overflow>0?`<span class="pill-chip-overflow">+${overflow}</span>`:'';
+    labelPart=`<span class="pill-chips" id="chips-${key}">${chipHtml}${badgeHtml}</span>`;
+  } else {
+    labelPart=`<span class="pill-label">${label}</span>`;
+  }
+  const chevronSvg=`<svg width="8" height="5" viewBox="6 9 12 6" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>`;
+  return`<div class="filter-pill ${isActive?'active':''}" id="pill-${key}" data-label="${label}" onclick="pillClick(event,'${key}')">
+    ${labelPart}<span class="pill-chevron">${chevronSvg}</span>
   </div>`;
 }
 
-function pillClick(e,key){
+function pillBuildPortal(key){
+  const {opts} = PILL_OPTS[key]||{opts:[]};
+  const sel = S.filters[key] instanceof Set ? S.filters[key] : new Set();
+  const checkSvg=`<svg width="7" height="6" viewBox="0 0 10 8" fill="none"><polyline points="1 4 4 7 9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  const items=opts.map(o=>`<div class="pill-dd-item ${sel.has(o)?'selected':''}" data-val="${o}" data-key="${key}" onclick="toggleFilter(event,'${key}','${o}')"><span>${o}</span><span class="dd-circle">${checkSvg}</span></div>`);
+  let el=document.getElementById('dd-'+key);
+  if(!el){
+    el=document.createElement('div');
+    el.id='dd-'+key;
+    el.className='pill-dropdown';
+    el.setAttribute('onclick','event.stopPropagation()');
+    document.body.appendChild(el);
+  }
+  el.innerHTML=items.join('');
+  return el;
+}
+
+function pillClick(e,key,isDate=false){
   e.stopPropagation();
-  const dd=document.getElementById('dd-'+key);
   const p=document.getElementById('pill-'+key);
-  const wasOpen=dd.classList.contains('open');
+  const wasOpen = document.getElementById('dd-'+key)?.classList.contains('open');
   closeAllPills();
   if(!wasOpen){
-    dd.classList.add('open');
-    p.classList.add('open');
-    if(document.getElementById('dp-calendar')) dpRender();
+    if(isDate){
+      // date picker still inline
+      const dd=document.getElementById('dd-'+key);
+      if(dd){ dd.classList.add('open'); p && p.classList.add('open'); }
+      DP.activeKey=key; DP.hoverDay=null;
+      const sk='ds_'+key;
+      if(S.filters[sk]){ DP.viewYear=parseInt(S.filters[sk].split('-')[0]); DP.viewMonth=parseInt(S.filters[sk].split('-')[1])-1; }
+      else { const now=new Date(); DP.viewYear=now.getFullYear(); DP.viewMonth=now.getMonth(); }
+      dpRenderKeyed(key);
+    } else {
+      const dd=pillBuildPortal(key);
+      // Position portal below the pill
+      const rect=p.getBoundingClientRect();
+      dd.style.position='fixed';
+      dd.style.top=(rect.bottom+6)+'px';
+      dd.style.left=rect.left+'px';
+      dd.style.zIndex='9999';
+      dd.classList.add('open');
+      p && p.classList.add('open');
+    }
   }
 }
-function closeAllPills(){document.querySelectorAll('.pill-dropdown').forEach(d=>d.classList.remove('open'));document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('open'));}
+
+function closeAllPills(){
+  document.querySelectorAll('.pill-dropdown').forEach(d=>d.classList.remove('open'));
+  document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('open'));
+}
 function setFilter(e,key,val){
   e.stopPropagation();
   if(val===null||val==='null')delete S.filters[key]; else S.filters[key]=val;
@@ -913,28 +998,72 @@ function toggleFilter(e,key,val){
   const s=S.filters[key];
   s.has(val)?s.delete(val):s.add(val);
   if(s.size===0) delete S.filters[key];
-
-  // Update pill label in-place without full re-render
-  const pillEl=document.getElementById('pill-'+key);
-  if(pillEl){
-    const count=s.size;
-    const labelEl=pillEl.querySelector('span:first-child');
-    // get original label from data attr or derive from key
-    const origLabel=pillEl.dataset.label||(key.charAt(0).toUpperCase()+key.slice(1));
-    if(labelEl){
-      labelEl.textContent=count===0?origLabel:count===1?[...s][0]:`${origLabel} (${count})`;
-    }
-    pillEl.classList.toggle('active',count>0);
-    // update checkboxes
-    pillEl.querySelectorAll('.pill-dd-item').forEach(item=>{
-      const itemVal=item.dataset.val;
-      const checked=s.has(itemVal);
-      item.classList.toggle('selected',checked);
-    });
-  }
-
-  // re-render the table rows only (not toolbar)
+  rebuildPillChips(key);
   renderRows();
+}
+
+function removeChip(e,key,val){
+  e.stopPropagation();
+  if(S.filters[key] instanceof Set){
+    S.filters[key].delete(val);
+    if(S.filters[key].size===0) delete S.filters[key];
+  }
+  rebuildPillChips(key);
+  renderRows();
+}
+
+function rebuildPillChips(key){
+  const pillEl=document.getElementById('pill-'+key);
+  if(!pillEl) return;
+  const s=S.filters[key];
+  const sel = s instanceof Set ? s : new Set();
+  const isActive = sel.size>0;
+  const origLabel=pillEl.dataset.label||(key.charAt(0).toUpperCase()+key.slice(1));
+  const xSvg=`<svg width="8" height="8" viewBox="0 0 8 8" fill="none"><line x1="1" y1="1" x2="7" y2="7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="7" y1="1" x2="1" y2="7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+
+  const chevron=pillEl.querySelector('.pill-chevron');
+  pillEl.querySelectorAll('.pill-label,.pill-chips').forEach(el=>el.remove());
+
+  if(isActive){
+    const allVals=[...sel];
+    // Measure how many chips fit: pill max-width 320px, minus 16px left pad, 12px right, 20px chevron, 8px margin, 8px gap = ~256px usable
+    // Estimate chip width: ~8px per char + 8+4+18px padding+x = ~38px base + char width
+    // Use a simple approach: show up to 2 chips, then +N for rest
+    const PILL_USABLE = 200; // conservative px budget for chips area
+    const overflowBadgeW = 36;
+    let shown=[], overflow=0;
+    let used=0;
+    for(let i=0;i<allVals.length;i++){
+      const approxW = allVals[i].length*7.5 + 38;
+      const remaining = allVals.length - i - 1;
+      const needBadge = remaining > 0;
+      const budgetNeeded = approxW + (needBadge ? overflowBadgeW+4 : 0);
+      if(used + budgetNeeded <= PILL_USABLE || shown.length===0){
+        shown.push(allVals[i]);
+        used += approxW + 4;
+      } else {
+        overflow = allVals.length - shown.length;
+        break;
+      }
+    }
+    const chipHtml = shown.map(v=>`<span class="pill-chip">${v}<span class="pill-chip-x" onclick="removeChip(event,'${key}','${v}')">${xSvg}</span></span>`).join('');
+    const badgeHtml = overflow>0 ? `<span class="pill-chip-overflow">+${overflow}</span>` : '';
+    const frag=document.createElement('span');
+    frag.className='pill-chips';
+    frag.id='chips-'+key;
+    frag.innerHTML=chipHtml+badgeHtml;
+    pillEl.insertBefore(frag, chevron);
+  } else {
+    const lbl=document.createElement('span');
+    lbl.className='pill-label';
+    lbl.textContent=origLabel;
+    pillEl.insertBefore(lbl, chevron);
+  }
+  pillEl.classList.toggle('active', isActive);
+
+  // Update checkboxes in portal dropdown
+  const ddEl=document.getElementById('dd-'+key);
+  if(ddEl){ ddEl.querySelectorAll('.pill-dd-item').forEach(item=>{ item.classList.toggle('selected', sel.has(item.dataset.val)); }); }
 }
 
 function applyF(rows,map){
@@ -957,8 +1086,8 @@ function applyF(rows,map){
 
 // ── VIEW TOGGLE ──
 function vtoggle(){return`<div class="view-toggle">
-  <button class="view-btn ${S.viewMode==='grid'?'active':''}" onclick="setVM('grid')" title="Grid"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button>
-  <button class="view-btn ${S.viewMode==='list'?'active':''}" onclick="setVM('list')" title="List"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <button class="view-btn ${S.viewMode==='grid'?'active':''}" onclick="setVM('grid')" title="Grid"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/></svg></button>
+  <button class="view-btn ${S.viewMode==='list'?'active':''}" onclick="setVM('list')" title="List"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="2" width="3" height="3" rx="0.75"/><rect x="6" y="2.5" width="9" height="2" rx="1"/><rect x="1" y="6.5" width="3" height="3" rx="0.75"/><rect x="6" y="7" width="9" height="2" rx="1"/><rect x="1" y="11" width="3" height="3" rx="0.75"/><rect x="6" y="11.5" width="9" height="2" rx="1"/></svg></button>
 </div>`;}
 function setVM(m){S.viewMode=m;render();}
 
@@ -995,14 +1124,14 @@ function gridCard({iconHtml, title, metaHtml, footerLeft, prefix, idx, clickFn='
 function docPage(allRows,prefix,cols,sorted,showCreate,rowIcon){
   const icon=rowIcon||(()=>fileIcon());
   const owners=[...new Set(allRows.map(r=>r.owner))].sort();
-  const filters=pill('owner','Owner',owners)+datePill('daterange', sorted);
-  const fk='daterange';
+  const filters=pill('owner','Owner',owners)+datePill('lastmod','Last Modified');
   const rows=applyF(allRows.map((r,i)=>({...r,_i:i})),{owner:S.filters.owner}).filter(r=>{
-    if(!S.filters.dateStart&&!S.filters.dateEnd) return true;
+    const sk='ds_lastmod',ek='de_lastmod';
+    if(!S.filters[sk]&&!S.filters[ek]) return true;
     const d=new Date(r.date); d.setHours(0,0,0,0);
     const rk=dpKey(d.getFullYear(),d.getMonth(),d.getDate());
-    if(S.filters.dateStart&&rk<S.filters.dateStart) return false;
-    if(S.filters.dateEnd&&rk>S.filters.dateEnd) return false;
+    if(S.filters[sk]&&rk<S.filters[sk]) return false;
+    if(S.filters[ek]&&rk>S.filters[ek]) return false;
     return true;
   });
 
@@ -1016,7 +1145,7 @@ function docPage(allRows,prefix,cols,sorted,showCreate,rowIcon){
       prefix, idx: d._i
     })).join('');
     return`<div class="toolbar"><div class="filter-group">${filters}</div><div class="toolbar-right">${vtoggle()}${showCreate?plusSvgBtn:''}</div></div>
-    <div class="table-container">${rows.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state"><p>No results</p><span>Try adjusting your filters</span></div>`}</div>`;
+    <div class="table-container">${rows.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state">${EMPTY_SVG}<span class="empty-state-caption">Nothing to see here....yet!</span></div>`}</div>`;
   }
 
   const colH=cols.map(c=>`<th class="${thClass(c)}" onclick="toggleSort('${c}')">${c}${sortArrow(c)}</th>`).join('');
@@ -1063,7 +1192,7 @@ function accountsTab(){
   const filtered=ADMIN_ACCOUNTS.filter(a=>{
     if(S.filters.role&&a.role!==S.filters.role)return false;
     if(S.filters.access&&a.access!==S.filters.access)return false;
-    if(S.filters.createdon&&!a.date.includes(S.filters.createdon))return false;
+    const csk='ds_createdon',cek='de_createdon'; if(S.filters[csk]||S.filters[cek]){const cd=new Date(a.date);cd.setHours(0,0,0,0);const crk=dpKey(cd.getFullYear(),cd.getMonth(),cd.getDate());if(S.filters[csk]&&crk<S.filters[csk])return false;if(S.filters[cek]&&crk>S.filters[cek])return false;}
     return true;
   });
   const colMap={'Account Name':'name','Role':'role','Access Level':'access','Created On':'date'};
@@ -1078,16 +1207,16 @@ function accountsTab(){
       circleIcon:true,
       prefix:'adm-acct',idx:i,clickFn:`openAccount('${a.name}')`
     })).join('');
-    return toolbar([pill('role','Role',roles),pill('access','Access Level',accesses),pill('createdon','Created On',['2022','2023'])],
+    return toolbar([pill('role','Role',roles),pill('access','Access Level',accesses),datePill('createdon','Created On')],
       `<button class="btn-primary" onclick="showToast('Add Account coming soon!')"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.01563 16C5.14063 16 2.51563 14.5 1.07813 12C-0.359375 9.53125 -0.359375 6.5 1.07813 4C2.51563 1.53125 5.14063 0 8.01563 0C10.8594 0 13.4844 1.53125 14.9219 4C16.3594 6.5 16.3594 9.53125 14.9219 12C13.4844 14.5 10.8594 16 8.01563 16ZM7.26563 10.75C7.26563 11.1875 7.57813 11.5 8.01563 11.5C8.42188 11.5 8.76563 11.1875 8.76563 10.75V8.75H10.7656C11.1719 8.75 11.5156 8.4375 11.5156 8C11.5156 7.59375 11.1719 7.25 10.7656 7.25H8.76563V5.25C8.76563 4.84375 8.42188 4.5 8.01563 4.5C7.57813 4.5 7.26563 4.84375 7.26563 5.25V7.25H5.26563C4.82813 7.25 4.51563 7.59375 4.51563 8C4.51563 8.4375 4.82813 8.75 5.26563 8.75H7.26563V10.75Z" fill="white"/></svg><span>Add Account</span></button>`)+
-      `<div class="table-container">${sorted.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state"><p>No results</p><span>Try adjusting your filters</span></div>`}</div>`;
+      `<div class="table-container">${sorted.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state">${EMPTY_SVG}<span class="empty-state-caption">Nothing to see here....yet!</span></div>`}</div>`;
   }
   const rows=sorted.map((a,i)=>`<tr onclick="openAccount('${a.name}')">
-    <td><div class="doc-cell"><div class="mini-avatar" style="background:${a.avatarBg};width:40px;height:40px;font-size:13px">${a.initials}</div><span class="doc-name">${a.name}</span></div></td>
+    <td><div class="doc-cell"><div class="mini-avatar" style="background:${a.avatarBg};width:36px;height:36px;font-size:13px;border-radius:50%">${a.initials}</div><span class="doc-name">${a.name}</span></div></td>
     <td class="role-col">${roleTag(a.role)}</td>
     <td>${accessTag(a.access)}</td>
     <td class="date-cell">${a.date}</td>${rowActions('adm-acct',i)}</tr>`).join('');
-  return toolbar([pill('role','Role',roles),pill('access','Access Level',accesses),pill('createdon','Created On',['2022','2023'])],
+  return toolbar([pill('role','Role',roles),pill('access','Access Level',accesses),datePill('createdon','Created On')],
     `<button class="btn-primary" onclick="showToast('Add Account coming soon!')"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.01563 16C5.14063 16 2.51563 14.5 1.07813 12C-0.359375 9.53125 -0.359375 6.5 1.07813 4C2.51563 1.53125 5.14063 0 8.01563 0C10.8594 0 13.4844 1.53125 14.9219 4C16.3594 6.5 16.3594 9.53125 14.9219 12C13.4844 14.5 10.8594 16 8.01563 16ZM7.26563 10.75C7.26563 11.1875 7.57813 11.5 8.01563 11.5C8.42188 11.5 8.76563 11.1875 8.76563 10.75V8.75H10.7656C11.1719 8.75 11.5156 8.4375 11.5156 8C11.5156 7.59375 11.1719 7.25 10.7656 7.25H8.76563V5.25C8.76563 4.84375 8.42188 4.5 8.01563 4.5C7.57813 4.5 7.26563 4.84375 7.26563 5.25V7.25H5.26563C4.82813 7.25 4.51563 7.59375 4.51563 8C4.51563 8.4375 4.82813 8.75 5.26563 8.75H7.26563V10.75Z" fill="white"/></svg><span>Add Account</span></button>`)+
     tableWrap(`<th class="${thClass('Account Name')}" onclick="toggleSort('Account Name')">Account Name${sortArrow('Account Name')}</th><th class="${thClass('Role')}" onclick="toggleSort('Role')">Role${sortArrow('Role')}</th><th class="${thClass('Access Level')}" onclick="toggleSort('Access Level')">Access Level${sortArrow('Access Level')}</th><th class="${thClass('Created On')}" onclick="toggleSort('Created On')">Created On${sortArrow('Created On')}</th><th style="width:96px"></th>`,rows,!filtered.length,['auto','240px','200px','140px','96px']);
 }
@@ -1098,7 +1227,7 @@ function teamsTab(){
   const filtered=ADMIN_TEAMS.filter(t=>{
     if(S.filters.role&&t.role!==S.filters.role)return false;
     if(S.filters.access&&t.access!==S.filters.access)return false;
-    if(S.filters.createdon&&!t.date.includes(S.filters.createdon))return false;
+    const csk='ds_createdon',cek='de_createdon'; if(S.filters[csk]||S.filters[cek]){const cd=new Date(a.date);cd.setHours(0,0,0,0);const crk=dpKey(cd.getFullYear(),cd.getMonth(),cd.getDate());if(S.filters[csk]&&crk<S.filters[csk])return false;if(S.filters[cek]&&crk>S.filters[cek])return false;}
     return true;
   });
   const colMapT={'Team Name':'name','Role':'role','Access Level':'access','Created On':'date'};
@@ -1113,16 +1242,16 @@ function teamsTab(){
       circleIcon:true,
       prefix:'adm-team',idx:i
     })).join('');
-    return toolbar([pill('role','Role',roles),pill('access','Access Level',accesses),pill('createdon','Created On',['2022','2023'])],
+    return toolbar([pill('role','Role',roles),pill('access','Access Level',accesses),datePill('createdon','Created On')],
       `<button class="btn-primary" onclick="showToast('Add Team coming soon!')"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.01563 16C5.14063 16 2.51563 14.5 1.07813 12C-0.359375 9.53125 -0.359375 6.5 1.07813 4C2.51563 1.53125 5.14063 0 8.01563 0C10.8594 0 13.4844 1.53125 14.9219 4C16.3594 6.5 16.3594 9.53125 14.9219 12C13.4844 14.5 10.8594 16 8.01563 16ZM7.26563 10.75C7.26563 11.1875 7.57813 11.5 8.01563 11.5C8.42188 11.5 8.76563 11.1875 8.76563 10.75V8.75H10.7656C11.1719 8.75 11.5156 8.4375 11.5156 8C11.5156 7.59375 11.1719 7.25 10.7656 7.25H8.76563V5.25C8.76563 4.84375 8.42188 4.5 8.01563 4.5C7.57813 4.5 7.26563 4.84375 7.26563 5.25V7.25H5.26563C4.82813 7.25 4.51563 7.59375 4.51563 8C4.51563 8.4375 4.82813 8.75 5.26563 8.75H7.26563V10.75Z" fill="white"/></svg><span>Add Team</span></button>`)+
-      `<div class="table-container">${sortedT.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state"><p>No results</p><span>Try adjusting your filters</span></div>`}</div>`;
+      `<div class="table-container">${sortedT.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state">${EMPTY_SVG}<span class="empty-state-caption">Nothing to see here....yet!</span></div>`}</div>`;
   }
   const rows=sortedT.map((t,i)=>`<tr>
     <td><div class="doc-cell"><div class="team-icon">${TEAM_ICON_SVG}</div><span class="doc-name">${t.name}</span></div></td>
     <td class="role-col">${roleTag(t.role)}</td>
     <td>${accessTag(t.access)}</td>
     <td class="date-cell">${t.date}</td>${rowActions('adm-team',i)}</tr>`).join('');
-  return toolbar([pill('role','Role',roles),pill('access','Access Level',accesses),pill('createdon','Created On',['2022','2023'])],
+  return toolbar([pill('role','Role',roles),pill('access','Access Level',accesses),datePill('createdon','Created On')],
     `<button class="btn-primary" onclick="showToast('Add Team coming soon!')"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.01563 16C5.14063 16 2.51563 14.5 1.07813 12C-0.359375 9.53125 -0.359375 6.5 1.07813 4C2.51563 1.53125 5.14063 0 8.01563 0C10.8594 0 13.4844 1.53125 14.9219 4C16.3594 6.5 16.3594 9.53125 14.9219 12C13.4844 14.5 10.8594 16 8.01563 16ZM7.26563 10.75C7.26563 11.1875 7.57813 11.5 8.01563 11.5C8.42188 11.5 8.76563 11.1875 8.76563 10.75V8.75H10.7656C11.1719 8.75 11.5156 8.4375 11.5156 8C11.5156 7.59375 11.1719 7.25 10.7656 7.25H8.76563V5.25C8.76563 4.84375 8.42188 4.5 8.01563 4.5C7.57813 4.5 7.26563 4.84375 7.26563 5.25V7.25H5.26563C4.82813 7.25 4.51563 7.59375 4.51563 8C4.51563 8.4375 4.82813 8.75 5.26563 8.75H7.26563V10.75Z" fill="white"/></svg><span>Add Team</span></button>`)+
     tableWrap(`<th class="${thClass('Team Name')}" onclick="toggleSort('Team Name')">Team Name${sortArrow('Team Name')}</th><th class="${thClass('Role')}" onclick="toggleSort('Role')">Role${sortArrow('Role')}</th><th class="${thClass('Access Level')}" onclick="toggleSort('Access Level')">Access Level${sortArrow('Access Level')}</th><th class="${thClass('Created On')}" onclick="toggleSort('Created On')">Created On${sortArrow('Created On')}</th><th style="width:96px"></th>`,rows,!filtered.length,['auto','240px','200px','140px','96px']);
 }
@@ -1131,7 +1260,7 @@ function workspacesTab(){
   const accesses=[...new Set(ADMIN_WORKSPACES.map(w=>w.access))].sort();
   const filtered=ADMIN_WORKSPACES.filter(w=>{
     if(S.filters.access&&w.access!==S.filters.access)return false;
-    if(S.filters.createdon&&!w.date.includes(S.filters.createdon))return false;
+    const csk='ds_createdon',cek='de_createdon'; if(S.filters[csk]||S.filters[cek]){const cd=new Date(a.date);cd.setHours(0,0,0,0);const crk=dpKey(cd.getFullYear(),cd.getMonth(),cd.getDate());if(S.filters[csk]&&crk<S.filters[csk])return false;if(S.filters[cek]&&crk>S.filters[cek])return false;}
     return true;
   });
   const colMapW={'Workspace Name':'name','Access Level':'access','Created On':'date'};
@@ -1144,15 +1273,15 @@ function workspacesTab(){
       footerLeft:`<span class="gc-date">${w.date}</span>${accessTag(w.access)}`,
       prefix:'adm-ws',idx:i
     })).join('');
-    return toolbar([pill('access','Access Level',accesses),pill('createdon','Created On',['2022','2023'])],
+    return toolbar([pill('access','Access Level',accesses),datePill('createdon','Created On')],
       `<button class="btn-primary" onclick="showToast('Add Workspace coming soon!')"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.01563 16C5.14063 16 2.51563 14.5 1.07813 12C-0.359375 9.53125 -0.359375 6.5 1.07813 4C2.51563 1.53125 5.14063 0 8.01563 0C10.8594 0 13.4844 1.53125 14.9219 4C16.3594 6.5 16.3594 9.53125 14.9219 12C13.4844 14.5 10.8594 16 8.01563 16ZM7.26563 10.75C7.26563 11.1875 7.57813 11.5 8.01563 11.5C8.42188 11.5 8.76563 11.1875 8.76563 10.75V8.75H10.7656C11.1719 8.75 11.5156 8.4375 11.5156 8C11.5156 7.59375 11.1719 7.25 10.7656 7.25H8.76563V5.25C8.76563 4.84375 8.42188 4.5 8.01563 4.5C7.57813 4.5 7.26563 4.84375 7.26563 5.25V7.25H5.26563C4.82813 7.25 4.51563 7.59375 4.51563 8C4.51563 8.4375 4.82813 8.75 5.26563 8.75H7.26563V10.75Z" fill="white"/></svg><span>Add Workspace</span></button>`)+
-      `<div class="table-container">${sortedW.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state"><p>No results</p><span>Try adjusting your filters</span></div>`}</div>`;
+      `<div class="table-container">${sortedW.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state">${EMPTY_SVG}<span class="empty-state-caption">Nothing to see here....yet!</span></div>`}</div>`;
   }
   const rows=sortedW.map((w,i)=>`<tr>
     <td><div class="doc-cell"><div class="ws-icon-cell">${WS_ICON_SVG}</div><span class="doc-name">${w.name}</span></div></td>
     <td>${accessTag(w.access)}</td>
     <td class="date-cell">${w.date}</td>${rowActions('adm-ws',i)}</tr>`).join('');
-  return toolbar([pill('access','Access Level',accesses),pill('createdon','Created On',['2022','2023'])],
+  return toolbar([pill('access','Access Level',accesses),datePill('createdon','Created On')],
     `<button class="btn-primary" onclick="showToast('Add Workspace coming soon!')"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.01563 16C5.14063 16 2.51563 14.5 1.07813 12C-0.359375 9.53125 -0.359375 6.5 1.07813 4C2.51563 1.53125 5.14063 0 8.01563 0C10.8594 0 13.4844 1.53125 14.9219 4C16.3594 6.5 16.3594 9.53125 14.9219 12C13.4844 14.5 10.8594 16 8.01563 16ZM7.26563 10.75C7.26563 11.1875 7.57813 11.5 8.01563 11.5C8.42188 11.5 8.76563 11.1875 8.76563 10.75V8.75H10.7656C11.1719 8.75 11.5156 8.4375 11.5156 8C11.5156 7.59375 11.1719 7.25 10.7656 7.25H8.76563V5.25C8.76563 4.84375 8.42188 4.5 8.01563 4.5C7.57813 4.5 7.26563 4.84375 7.26563 5.25V7.25H5.26563C4.82813 7.25 4.51563 7.59375 4.51563 8C4.51563 8.4375 4.82813 8.75 5.26563 8.75H7.26563V10.75Z" fill="white"/></svg><span>Add Workspace</span></button>`)+
     tableWrap(`<th class="${thClass('Workspace Name')}" onclick="toggleSort('Workspace Name')">Workspace Name${sortArrow('Workspace Name')}</th><th class="${thClass('Access Level')}" onclick="toggleSort('Access Level')">Access Level${sortArrow('Access Level')}</th><th class="${thClass('Created On')}" onclick="toggleSort('Created On')">Created On${sortArrow('Created On')}</th><th style="width:96px"></th>`,rows,!filtered.length,['auto','200px','140px','96px']);
 }
@@ -1161,7 +1290,7 @@ function adminProjectsTab(){
   const wsList=[...new Set(ADMIN_PROJECTS.map(p=>p.workspace))].sort();
   const filtered=ADMIN_PROJECTS.filter(p=>{
     if(S.filters.workspace&&p.workspace!==S.filters.workspace)return false;
-    if(S.filters.createdon&&!p.date.includes(S.filters.createdon))return false;
+    const csk='ds_createdon',cek='de_createdon'; if(S.filters[csk]||S.filters[cek]){const cd=new Date(a.date);cd.setHours(0,0,0,0);const crk=dpKey(cd.getFullYear(),cd.getMonth(),cd.getDate());if(S.filters[csk]&&crk<S.filters[csk])return false;if(S.filters[cek]&&crk>S.filters[cek])return false;}
     return true;
   });
   const colMapP={'Project Name':'name','Workspace':'workspace','Created On':'date'};
@@ -1175,15 +1304,15 @@ function adminProjectsTab(){
       footerLeft:`<span class="gc-date">${p.date}</span>`,
       prefix:'adm-proj',idx:i
     })).join('');
-    return toolbar([pill('workspace','Workspace',wsList),pill('createdon','Created On',['2022','2023'])],
+    return toolbar([pill('workspace','Workspace',wsList),datePill('createdon','Created On')],
       `<button class="btn-primary" onclick="showToast('Add Project coming soon!')">${plusSvg}<span>Add Project</span></button>`)+
-      `<div class="table-container">${sortedP.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state"><p>No results</p><span>Try adjusting your filters</span></div>`}</div>`;
+      `<div class="table-container">${sortedP.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state">${EMPTY_SVG}<span class="empty-state-caption">Nothing to see here....yet!</span></div>`}</div>`;
   }
   const rows=sortedP.map((p,i)=>`<tr>
     <td><div class="doc-cell"><div class="doc-icon">${PROJ_ICON_SVG}</div><span class="doc-name">${p.name}</span></div></td>
     <td class="owner-cell">${p.workspace}</td>
     <td class="date-cell">${p.date}</td>${rowActions('adm-proj',i)}</tr>`).join('');
-  return toolbar([pill('workspace','Workspace',wsList),pill('createdon','Created On',['2022','2023'])],
+  return toolbar([pill('workspace','Workspace',wsList),datePill('createdon','Created On')],
     `<button class="btn-primary" onclick="showToast('Add Project coming soon!')">${plusSvg}<span>Add Project</span></button>`)+
     tableWrap(`<th class="${thClass('Project Name')}" onclick="toggleSort('Project Name')">Project Name${sortArrow('Project Name')}</th><th class="${thClass('Workspace')}" onclick="toggleSort('Workspace')">Workspace${sortArrow('Workspace')}</th><th class="${thClass('Created On')}" onclick="toggleSort('Created On')">Created On${sortArrow('Created On')}</th><th style="width:96px"></th>`,rows,!filtered.length,['auto','220px','140px','96px']);
 }
@@ -1236,7 +1365,7 @@ function accountProjectsTab(a){
   const wsList=[...new Set(ADMIN_PROJECTS.map(p=>p.workspace))].sort();
   const filtered=ADMIN_PROJECTS.filter(p=>{
     if(S.filters.workspace&&p.workspace!==S.filters.workspace)return false;
-    if(S.filters.createdon&&!p.date.includes(S.filters.createdon))return false;
+    const csk='ds_createdon',cek='de_createdon'; if(S.filters[csk]||S.filters[cek]){const cd=new Date(a.date);cd.setHours(0,0,0,0);const crk=dpKey(cd.getFullYear(),cd.getMonth(),cd.getDate());if(S.filters[csk]&&crk<S.filters[csk])return false;if(S.filters[cek]&&crk>S.filters[cek])return false;}
     return true;
   });
   const plusSvg2=`<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.01563 16C5.14063 16 2.51563 14.5 1.07813 12C-0.359375 9.53125 -0.359375 6.5 1.07813 4C2.51563 1.53125 5.14063 0 8.01563 0C10.8594 0 13.4844 1.53125 14.9219 4C16.3594 6.5 16.3594 9.53125 14.9219 12C13.4844 14.5 10.8594 16 8.01563 16ZM7.26563 10.75C7.26563 11.1875 7.57813 11.5 8.01563 11.5C8.42188 11.5 8.76563 11.1875 8.76563 10.75V8.75H10.7656C11.1719 8.75 11.5156 8.4375 11.5156 8C11.5156 7.59375 11.1719 7.25 10.7656 7.25H8.76563V5.25C8.76563 4.84375 8.42188 4.5 8.01563 4.5C7.57813 4.5 7.26563 4.84375 7.26563 5.25V7.25H5.26563C4.82813 7.25 4.51563 7.59375 4.51563 8C4.51563 8.4375 4.82813 8.75 5.26563 8.75H7.26563V10.75Z" fill="white"/></svg>`;
@@ -1245,12 +1374,12 @@ function accountProjectsTab(a){
       iconHtml:PROJ_ICON_SVG,title:p.name,metaHtml:p.workspace,
       footerLeft:`<span class="gc-date">${p.date}</span>`,prefix:'ap-proj',idx:i
     })).join('');
-    return toolbar([pill('workspace','Workspace',wsList),pill('createdon','Created On',['2022','2023'])],
+    return toolbar([pill('workspace','Workspace',wsList),datePill('createdon','Created On')],
       `<button class="btn-primary" onclick="showToast('Add Project coming soon!')">${plusSvg2}<span>Add Project</span></button>`)+
-      `<div class="table-container">${filtered.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state"><p>No results</p><span>Try adjusting your filters</span></div>`}</div>`;
+      `<div class="table-container">${filtered.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state">${EMPTY_SVG}<span class="empty-state-caption">Nothing to see here....yet!</span></div>`}</div>`;
   }
   const rows=filtered.map((p,i)=>`<tr><td><div class="doc-cell"><div class="doc-icon">${PROJ_ICON_SVG}</div><span class="doc-name">${p.name}</span></div></td><td class="owner-cell">${p.workspace}</td><td class="date-cell">${p.date}</td>${rowActions('ap-proj',i)}</tr>`).join('');
-  return toolbar([pill('workspace','Workspace',wsList),pill('createdon','Created On',['2022','2023'])],
+  return toolbar([pill('workspace','Workspace',wsList),datePill('createdon','Created On')],
     `<button class="btn-primary" onclick="showToast('Add Project coming soon!')">${plusSvg2}<span>Add Project</span></button>`)+
     tableWrap(`<th>Project Name</th><th>Workspace</th><th>Created On</th><th style="width:96px"></th>`,rows,!filtered.length,['auto','220px','140px','96px']);
 }
@@ -1261,7 +1390,7 @@ function accountTeamsTab(a){
   const filtered=ADMIN_TEAMS.filter(t=>{
     if(S.filters.role&&t.role!==S.filters.role)return false;
     if(S.filters.access&&t.access!==S.filters.access)return false;
-    if(S.filters.createdon&&!t.date.includes(S.filters.createdon))return false;
+    const csk='ds_createdon',cek='de_createdon'; if(S.filters[csk]||S.filters[cek]){const cd=new Date(a.date);cd.setHours(0,0,0,0);const crk=dpKey(cd.getFullYear(),cd.getMonth(),cd.getDate());if(S.filters[csk]&&crk<S.filters[csk])return false;if(S.filters[cek]&&crk>S.filters[cek])return false;}
     return true;
   });
   if(S.viewMode==='grid'){
@@ -1272,15 +1401,15 @@ function accountTeamsTab(a){
       circleIcon:true,
       prefix:'ap-team',idx:i
     })).join('');
-    return toolbar([pill('role','Role',roles),pill('access','Access Level',accesses),pill('createdon','Created On',['2022','2023'])],
+    return toolbar([pill('role','Role',roles),pill('access','Access Level',accesses),datePill('createdon','Created On')],
       `<button class="btn-primary" onclick="showToast('Add Account coming soon!')"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.01563 16C5.14063 16 2.51563 14.5 1.07813 12C-0.359375 9.53125 -0.359375 6.5 1.07813 4C2.51563 1.53125 5.14063 0 8.01563 0C10.8594 0 13.4844 1.53125 14.9219 4C16.3594 6.5 16.3594 9.53125 14.9219 12C13.4844 14.5 10.8594 16 8.01563 16ZM7.26563 10.75C7.26563 11.1875 7.57813 11.5 8.01563 11.5C8.42188 11.5 8.76563 11.1875 8.76563 10.75V8.75H10.7656C11.1719 8.75 11.5156 8.4375 11.5156 8C11.5156 7.59375 11.1719 7.25 10.7656 7.25H8.76563V5.25C8.76563 4.84375 8.42188 4.5 8.01563 4.5C7.57813 4.5 7.26563 4.84375 7.26563 5.25V7.25H5.26563C4.82813 7.25 4.51563 7.59375 4.51563 8C4.51563 8.4375 4.82813 8.75 5.26563 8.75H7.26563V10.75Z" fill="white"/></svg><span>Add Account</span></button>`)+
-      `<div class="table-container">${filtered.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state"><p>No results</p><span>Try adjusting your filters</span></div>`}</div>`;
+      `<div class="table-container">${filtered.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state">${EMPTY_SVG}<span class="empty-state-caption">Nothing to see here....yet!</span></div>`}</div>`;
   }
   const rows=filtered.map((t,i)=>`<tr><td><div class="doc-cell"><div class="team-icon">${TEAM_ICON_SVG}</div><span class="doc-name">${t.name}</span></div></td>
     <td class="role-col">${roleTag(t.role)}</td>
     <td>${accessTag(t.access)}</td>
     <td class="date-cell">${t.date}</td>${rowActions('ap-team',i)}</tr>`).join('');
-  return toolbar([pill('role','Role',roles),pill('access','Access Level',accesses),pill('createdon','Created On',['2022','2023'])],
+  return toolbar([pill('role','Role',roles),pill('access','Access Level',accesses),datePill('createdon','Created On')],
     `<button class="btn-primary" onclick="showToast('Add Account coming soon!')"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.01563 16C5.14063 16 2.51563 14.5 1.07813 12C-0.359375 9.53125 -0.359375 6.5 1.07813 4C2.51563 1.53125 5.14063 0 8.01563 0C10.8594 0 13.4844 1.53125 14.9219 4C16.3594 6.5 16.3594 9.53125 14.9219 12C13.4844 14.5 10.8594 16 8.01563 16ZM7.26563 10.75C7.26563 11.1875 7.57813 11.5 8.01563 11.5C8.42188 11.5 8.76563 11.1875 8.76563 10.75V8.75H10.7656C11.1719 8.75 11.5156 8.4375 11.5156 8C11.5156 7.59375 11.1719 7.25 10.7656 7.25H8.76563V5.25C8.76563 4.84375 8.42188 4.5 8.01563 4.5C7.57813 4.5 7.26563 4.84375 7.26563 5.25V7.25H5.26563C4.82813 7.25 4.51563 7.59375 4.51563 8C4.51563 8.4375 4.82813 8.75 5.26563 8.75H7.26563V10.75Z" fill="white"/></svg><span>Add Account</span></button>`)+
     tableWrap(`<th onclick="toggleSort('Team Name')">Team Name${sortArrow('Team Name')}</th><th onclick="toggleSort('Role')">Role${sortArrow('Role')}</th><th onclick="toggleSort('Access Level')">Access Level${sortArrow('Access Level')}</th><th onclick="toggleSort('Created On')">Created On${sortArrow('Created On')}</th><th style="width:96px"></th>`,rows,!filtered.length,['auto','240px','200px','140px','96px']);
 }
@@ -1289,7 +1418,7 @@ function accountWorkspacesTab(a){
   const accesses=[...new Set(ADMIN_WORKSPACES.map(w=>w.access))].sort();
   const filtered=ADMIN_WORKSPACES.filter(w=>{
     if(S.filters.access&&w.access!==S.filters.access)return false;
-    if(S.filters.createdon&&!w.date.includes(S.filters.createdon))return false;
+    const csk='ds_createdon',cek='de_createdon'; if(S.filters[csk]||S.filters[cek]){const cd=new Date(a.date);cd.setHours(0,0,0,0);const crk=dpKey(cd.getFullYear(),cd.getMonth(),cd.getDate());if(S.filters[csk]&&crk<S.filters[csk])return false;if(S.filters[cek]&&crk>S.filters[cek])return false;}
     return true;
   });
   if(S.viewMode==='grid'){
@@ -1298,12 +1427,12 @@ function accountWorkspacesTab(a){
       footerLeft:`<span class="gc-date">${w.date}</span>${accessTag(w.access)}`,
       prefix:'ap-ws',idx:i
     })).join('');
-    return toolbar([pill('access','Access Level',accesses),pill('createdon','Created On',['2022','2023'])],
+    return toolbar([pill('access','Access Level',accesses),datePill('createdon','Created On')],
       `<button class="btn-primary" onclick="showToast('Add Workspace coming soon!')"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.01563 16C5.14063 16 2.51563 14.5 1.07813 12C-0.359375 9.53125 -0.359375 6.5 1.07813 4C2.51563 1.53125 5.14063 0 8.01563 0C10.8594 0 13.4844 1.53125 14.9219 4C16.3594 6.5 16.3594 9.53125 14.9219 12C13.4844 14.5 10.8594 16 8.01563 16ZM7.26563 10.75C7.26563 11.1875 7.57813 11.5 8.01563 11.5C8.42188 11.5 8.76563 11.1875 8.76563 10.75V8.75H10.7656C11.1719 8.75 11.5156 8.4375 11.5156 8C11.5156 7.59375 11.1719 7.25 10.7656 7.25H8.76563V5.25C8.76563 4.84375 8.42188 4.5 8.01563 4.5C7.57813 4.5 7.26563 4.84375 7.26563 5.25V7.25H5.26563C4.82813 7.25 4.51563 7.59375 4.51563 8C4.51563 8.4375 4.82813 8.75 5.26563 8.75H7.26563V10.75Z" fill="white"/></svg><span>Add Workspace</span></button>`)+
-      `<div class="table-container">${filtered.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state"><p>No results</p><span>Try adjusting your filters</span></div>`}</div>`;
+      `<div class="table-container">${filtered.length?`<div class="grid-view">${cards}</div>`:`<div class="empty-state">${EMPTY_SVG}<span class="empty-state-caption">Nothing to see here....yet!</span></div>`}</div>`;
   }
   const rows=filtered.map((w,i)=>`<tr><td><div class="doc-cell"><div class="ws-icon-cell">${WS_ICON_SVG}</div><span class="doc-name">${w.name}</span></div></td><td>${accessTag(w.access)}</td><td class="date-cell">${w.date}</td>${rowActions('ap-ws',i)}</tr>`).join('');
-  return toolbar([pill('access','Access Level',accesses),pill('createdon','Created On',['2022','2023'])],
+  return toolbar([pill('access','Access Level',accesses),datePill('createdon','Created On')],
     `<button class="btn-primary" onclick="showToast('Add Workspace coming soon!')"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.01563 16C5.14063 16 2.51563 14.5 1.07813 12C-0.359375 9.53125 -0.359375 6.5 1.07813 4C2.51563 1.53125 5.14063 0 8.01563 0C10.8594 0 13.4844 1.53125 14.9219 4C16.3594 6.5 16.3594 9.53125 14.9219 12C13.4844 14.5 10.8594 16 8.01563 16ZM7.26563 10.75C7.26563 11.1875 7.57813 11.5 8.01563 11.5C8.42188 11.5 8.76563 11.1875 8.76563 10.75V8.75H10.7656C11.1719 8.75 11.5156 8.4375 11.5156 8C11.5156 7.59375 11.1719 7.25 10.7656 7.25H8.76563V5.25C8.76563 4.84375 8.42188 4.5 8.01563 4.5C7.57813 4.5 7.26563 4.84375 7.26563 5.25V7.25H5.26563C4.82813 7.25 4.51563 7.59375 4.51563 8C4.51563 8.4375 4.82813 8.75 5.26563 8.75H7.26563V10.75Z" fill="white"/></svg><span>Add Workspace</span></button>`)+
     tableWrap(`<th onclick="toggleSort('Workspace Name')">Workspace Name${sortArrow('Workspace Name')}</th><th onclick="toggleSort('Access Level')">Access Level${sortArrow('Access Level')}</th><th onclick="toggleSort('Created On')">Created On${sortArrow('Created On')}</th><th style="width:96px"></th>`,rows,!filtered.length,['auto','200px','140px','96px']);
 }
@@ -1323,7 +1452,7 @@ function tableWrap(headers,rows,empty,colWidths){
   // Inject 8px spacer rows between data rows
   const spacer=`<tr class="spacer"><td colspan="${colCount}" style="height:8px;padding:0;background:transparent"></td></tr>`;
   const spacedRows=rows.replace(/<\/tr>\s*(?=<tr(?! class="spacer"))/g,`</tr>${spacer}`);
-  return`<div class="table-container"><table>${cg}<thead><tr>${headers}</tr></thead><tbody>${spacer}${spacedRows}</tbody></table>${empty?`<div class="empty-state"><p>No results</p><span>Try adjusting your filters</span></div>`:''}</div>`;
+  return`<div class="table-container"><table>${cg}<thead><tr>${headers}</tr></thead><tbody>${spacer}${spacedRows}</tbody></table>${empty?`<div class="empty-state">${EMPTY_SVG}<span class="empty-state-caption">Nothing to see here....yet!</span></div>`:''}</div>`;
 }
 
 // ── INTERACTIONS ──
@@ -1394,7 +1523,7 @@ function selectType(el){document.querySelectorAll('.doc-type-option').forEach(o=
 function createDoc(){const n=document.getElementById('doc-name-input').value.trim();if(!n){document.getElementById('doc-name-input').focus();return;}closeModal();showToast(`"${n}" created!`);}
 
 // ── TOAST ──
-function showToast(msg){const t=document.createElement('div');t.style.cssText=`position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(8px);background:#111827;color:#fff;padding:9px 17px;border-radius:8px;font-size:13px;font-weight:500;z-index:9999;opacity:0;transition:all 0.18s;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,0.22)`;t.textContent=msg;document.body.appendChild(t);requestAnimationFrame(()=>{t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';});setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.remove(),250);},2400);}
+function showToast(msg){const t=document.createElement('div');t.style.cssText=`position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(8px);background:#111827;color:#fff;padding:8px;border-radius:8px;font-size:13px;font-weight:500;z-index:9999;opacity:0;transition:all 0.18s;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,0.22)`;t.textContent=msg;document.body.appendChild(t);requestAnimationFrame(()=>{t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';});setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.remove(),250);},2400);}
 
 // ── BOOT ──
 initSidebar();
