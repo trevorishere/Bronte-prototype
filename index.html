@@ -120,14 +120,14 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .toolbar { display:flex; align-items:center; justify-content:space-between; padding:32px 32px 32px; background:#F9FAFB; flex-shrink:0; gap:12px; }
 .filter-group { display:flex; gap:8px; flex-wrap:wrap; }
 
-/* PILLS — 40px tall, 20px L pad, 8px gap, 16px R pad */
-.filter-pill { display:inline-flex; align-items:center; gap:16px; padding:0 12px 0 20px; height:40px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; user-select:none; background:var(--filter-bg); border:1.5px solid transparent; color:var(--text-secondary); transition:background 0.12s, border-color 0.12s, color 0.12s, box-shadow 0.12s; white-space:nowrap; position:relative; }
-.filter-pill:hover { background:#fff; border-color:var(--control-border); box-shadow:none; color:var(--text-active); }
-.filter-pill.active { background:var(--filter-active-bg); border-color:var(--control-border); color:var(--text-active); font-weight:600; box-shadow:none; }
+/* PILLS — 48px tall, 16px L pad, 8px gap, 12px R pad */
+.filter-pill { display:inline-flex; align-items:center; gap:24px; padding:0 12px 0 16px; height:48px; border-radius:8px; font-size:15px; font-weight:600; cursor:pointer; user-select:none; background:none; border:1.5px solid transparent; color:#D8DEE5; transition:background 0.12s, border-color 0.12s, color 0.12s, box-shadow 0.12s; white-space:nowrap; position:relative; }
+.filter-pill:hover { background:#fff; border-color:#D8DEE5; box-shadow:none; color:var(--text-active); }
+.filter-pill.active { background:#fff; border-color:#D8DEE5; color:var(--text-active); font-weight:600; box-shadow:none; }
 .pill-chevron { display:flex; align-items:center; justify-content:center; width:20px; height:20px; flex-shrink:0; opacity:0.5; transition:transform 0.15s; }
 .filter-pill.open { background:#fff; border-color:var(--control-border); box-shadow:none; color:var(--text-active); }
 .filter-pill.open .pill-chevron { transform:none; }
-.pill-dropdown { position:absolute; top:calc(100% + 6px); left:0; background:var(--filter-bg); border:1.5px solid transparent; border-radius:8px; box-shadow:none; min-width:100%; width:max-content; max-width:280px; z-index:300; display:none; overflow:hidden; padding:4px 20px 8px 4px; }
+.pill-dropdown { position:absolute; top:calc(100% + 6px); left:0; background:var(--filter-bg); border:1.5px solid transparent; border-radius:8px; box-shadow:none; min-width:100%; width:max-content; max-width:280px; z-index:300; display:none; overflow:hidden; padding:8px 20px 8px 8px; }
 .pill-dropdown.open { display:block; background:#fff; border-color:var(--control-border); box-shadow:0 2px 8px rgba(0,0,0,0.07); animation:fadeIn 0.1s ease; }
 .pill-dd-header { display:none; }
 .pill-dd-header-label { font-size:14px; font-weight:600; color:var(--text-active); }
