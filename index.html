@@ -121,7 +121,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .filter-group { display:flex; gap:8px; flex-wrap:wrap; overflow:visible; }
 
 /* PILLS */
-.filter-pill { display:inline-flex; align-items:center; gap:8px; padding:0 12px 0 14px; height:40px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; user-select:none; background:#F9FAFB; border:1.5px solid #D8DEE5; color:var(--text-secondary); transition:background 0.12s, border-color 0.12s, color 0.12s; white-space:nowrap; position:relative; flex-wrap:nowrap; max-width:320px; }
+.filter-pill { display:inline-flex; align-items:center; gap:8px; padding:0 12px 0 14px; height:40px; border-radius:16px; font-size:14px; font-weight:600; cursor:pointer; user-select:none; background:#F9FAFB; border:1.5px solid #D8DEE5; color:var(--text-secondary); transition:background 0.12s, border-color 0.12s, color 0.12s; white-space:nowrap; position:relative; flex-wrap:nowrap; max-width:320px; }
 .filter-pill.active { padding:0 8px 0 4px; }
 .filter-pill:hover { background:#fff; border-color:#D8DEE5; color:var(--text-active); }
 .filter-pill.active { background:#fff; border-color:#D8DEE5; color:var(--text-active); font-weight:600; }
@@ -135,7 +135,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .pill-chevron { display:flex; align-items:center; justify-content:center; width:20px; height:20px; flex-shrink:0; opacity:0.7; margin-left:8px; }
 
 /* DROPDOWN */
-.pill-dropdown { position:absolute; top:calc(100% + 6px); left:0; background:#fff; border:1px solid #D8DEE5; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08); width:220px; z-index:300; display:none; overflow:hidden; padding:4px; }
+.pill-dropdown { position:absolute; top:calc(100% + 6px); left:0; background:#fff; border:1px solid #D8DEE5; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.08); width:220px; z-index:300; display:none; overflow:hidden; padding:4px; }
 .pill-dropdown.open { display:block; animation:fadeIn 0.1s ease; }
 .pill-dd-header { display:none; }
 .pill-dd-item { height:36px; padding:0 12px; font-size:14px; font-weight:600; color:var(--text-active); cursor:pointer; transition:background 0.1s,color 0.1s; display:flex; align-items:center; justify-content:space-between; gap:16px; white-space:nowrap; border-radius:4px; margin-bottom:4px; }
