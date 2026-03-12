@@ -45,7 +45,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .nav-group { padding:0 0 8px; margin:0 0 16px; display:flex; flex-direction:column; gap:4px; }
 
 /* Nav items: 40px tall, 12px L/R margin, 10px icon gap */
-.nav-item { display:flex; align-items:center; gap:10px; padding:0 12px; height:36px; min-height:36px; max-height:36px; cursor:pointer; color:var(--text-secondary); font-size:14px; font-weight:600; transition:background 0.1s,color 0.1s; user-select:none; border-radius:6px; margin:0 12px; overflow:hidden; white-space:nowrap; }
+.nav-item { display:flex; align-items:center; gap:12px; padding:0 12px; height:36px; min-height:36px; max-height:36px; cursor:pointer; color:var(--text-secondary); font-size:14px; font-weight:600; transition:background 0.1s,color 0.1s; user-select:none; border-radius:6px; margin:0 12px; overflow:hidden; white-space:nowrap; }
 .nav-item:hover { background:var(--nav-active-bg); color:var(--text-active); }
 .nav-item.active { background:var(--nav-active-bg); color:var(--text-active); font-weight:600; }
 /* Icon wrapper: exactly 20px wide, centered */
@@ -70,7 +70,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .workspace-scroll .nav-item > :not(.workspace-dot) { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 
 /* Workspace dot: 20px wide to match icon container, 4px radius, white Inter ExtraBold 10pt */
-.workspace-dot { width:20px; height:18px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-family:'Inter', sans-serif; font-size:10px; font-weight:800; color:#fff; flex-shrink:0; letter-spacing:0; }
+.workspace-dot { width:20px; height:18px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-family:'Inter', sans-serif; font-size:10px; font-weight:700; color:#fff; flex-shrink:0; letter-spacing:0; }
 
 /* MAIN */
 .main { flex:1; display:flex; flex-direction:column; overflow:hidden; min-width:0; }
@@ -109,11 +109,11 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .profile-meta-link { color:var(--accent); text-decoration:underline; cursor:pointer; }
 
 /* TABS */
-.tabs { display:flex; gap:12px; }
-.tab { padding:0 20px 20px; height:auto; display:flex; align-items:flex-start; font-size:14px; font-weight:600; color:var(--text-secondary); cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-1px; transition:color 0.1s,border-color 0.1s; user-select:none; white-space:nowrap; }
+.tabs { display:flex; gap:8px; }
+.tab { padding:0 24px 24px; height:auto; display:flex; align-items:flex-start; font-size:14px; font-weight:600; color:var(--text-secondary); cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-1px; transition:color 0.1s,border-color 0.1s; user-select:none; white-space:nowrap; }
 .tab:hover { color:var(--accent); }
 .tab.active { color:var(--accent); border-bottom-color:var(--accent); font-weight:600; }
-.tabs-bar { border-bottom:1px solid var(--border); padding:24px 32px 0; background:#fff; flex-shrink:0; }
+.tabs-bar { border-bottom:1px solid var(--border); padding:8px 24px 0; background:#fff; flex-shrink:0; }
 .tabs-bar .tabs { padding:0; }
 
 /* TOOLBAR — 138px total: 48px top padding + 42px row + 48px bottom padding */
@@ -192,9 +192,9 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .dp-apply.ready:hover { background:#36609E; }
 
 /* VIEW TOGGLE */
-.view-toggle { display:flex; border-radius:8px; background:#FDFDFD; border:1px solid #EEF2F6; padding:0px; gap:0px; height:44px; box-sizing:border-box; align-items:center; }
+.view-toggle { display:flex; border-radius:8px; background:#FDFDFD; border:1.5px solid ##D8DEE5; padding:0px; gap:0px; height:44px; box-sizing:border-box; align-items:center; }
 .view-btn { width:44px; height:44px; background:transparent; border:none; cursor:pointer; color:#ACB1BF; display:flex; align-items:center; justify-content:center; transition:color 0.12s; flex-shrink:0; border-radius:8px; }
-.view-btn.active { background:#fff; color:#4A5163; border:1px solid #EEF2F6; }
+.view-btn.active { background:#fff; color:#4A5163; border:1.5px solid #D8DEE5; }
 .view-btn:hover:not(.active) { color:#636C85; background:transparent; }
 
 .toolbar-right { display:flex; align-items:center; gap:16px; flex-shrink:0; }
