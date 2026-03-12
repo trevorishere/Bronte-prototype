@@ -204,7 +204,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 /* TABLE */
 .table-container { flex:1; overflow-y:auto; background:#F9FAFB; }
 .table-container::-webkit-scrollbar { width:5px; }
-.table-container::-webkit-scrollbar-thumb { background:#d1d5db; border-radius:3px; }
+.table-container::-webkit-scrollbar-thumb { background:#d1d5db; border-radius:8px; }
 table { width:100%; border-collapse:separate; border-spacing:0 0; padding:0 32px 16px; table-layout:fixed; }
 thead th { padding:0 12px; height:32px; text-align:left; font-size:14px; font-weight:600; color:var(--text-primary); background:#F9FAFB; position:sticky; top:0; z-index:2; cursor:pointer; user-select:none; white-space:nowrap; overflow:visible; text-overflow:ellipsis; transition:color 0.1s; display:table-cell; vertical-align:middle; border-bottom:none; box-shadow:0 1px 0 0 #F9FAFB; }
 thead th::before { content:''; position:absolute; inset:0 -2px; background:#F9FAFB; z-index:-1; }
@@ -217,7 +217,7 @@ thead th.sorted .sort-arrow { opacity:1; }
 th:first-child, td:first-child { padding-left:16px; }
 th:last-child, td:last-child { padding-right:16px; }
 /* Card rows: #FDFDFD default, #ffffff on hover/select, 8px radius */
-tbody tr { background:transparent; cursor:pointer; transition:box-shadow 0.12s; height:72px; }
+tbody tr { background:transparent; cursor:pointer; transition:box-shadow 0.12s; height:64px; }
 tbody tr td { border-top:none; background:#FDFDFD; box-shadow:0 0 0 1px #EEF2F6; }
 tbody tr td:not(:first-child) { box-shadow:inset 0 1px 0 0 #EEF2F6, inset 0 -1px 0 0 #EEF2F6, 1px 0 0 0 #EEF2F6; }
 tbody tr td:first-child { box-shadow:-1px 0 0 0 #EEF2F6, inset 0 1px 0 0 #EEF2F6, inset 0 -1px 0 0 #EEF2F6; }
@@ -231,8 +231,8 @@ tbody tr:hover .row-actions { opacity:1 !important; }
 tbody tr .row-actions.has-star-active { opacity:1; }
 tbody tr .row-actions .star-btn.starred { opacity:1; }
 /* Row gap via spacer rows */
-tbody tr.spacer { height:4px !important; max-height:4px !important; background:transparent; box-shadow:none; pointer-events:none; }
-tbody tr.spacer td { padding:0; border:none; background:transparent; box-shadow:none !important; height:4px !important; }
+tbody tr.spacer { height:2px !important; max-height:2px !important; background:transparent; box-shadow:none; pointer-events:none; }
+tbody tr.spacer td { padding:0; border:none; background:transparent; box-shadow:none !important; height:2px !important; }
 td { padding:0 16px; font-size:14px; font-weight:500; vertical-align:middle; color:var(--text-primary); overflow:hidden; max-width:0; }
 /* 4px radius on ALL corners of each row via first/last td */
 tbody tr td:first-child { border-radius:8px 0 0 8px; }
