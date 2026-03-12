@@ -122,7 +122,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 
 /* PILLS */
 .filter-pill { display:inline-flex; align-items:center; gap:8px; padding:0 12px 1px 20px; height:40px; border-radius:20px; font-size:14px; font-weight:600; cursor:pointer; user-select:none; background:#F9FAFB; border:1.5px solid #D8DEE5; color:var(--text-secondary); transition:background 0.12s, border-color 0.12s, color 0.12s; white-space:nowrap; position:relative; flex-wrap:nowrap; max-width:320px; }
-.filter-pill.active { padding:0 4px 0px 4px; }
+.filter-pill.active { padding:0 12px 0px 4px; }
 .filter-pill:hover { background:#fff; border-color:#D8DEE5; color:var(--text-active); }
 .filter-pill.active { background:#fff; border-color:#D8DEE5; color:var(--text-active); font-weight:600; }
 .filter-pill.open { background:#fff; border-color:#D8DEE5; color:var(--text-active); }
@@ -131,7 +131,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .pill-chip { display:inline-flex; align-items:center; gap:12px; background:#EEF3FB; color:#4A5163; font-size:14px; font-weight:600; padding:0 12px 1px 16px; border-radius:16px; height:32px; white-space:nowrap; flex-shrink:0; }
 .pill-chip-x { display:flex; align-items:center; justify-content:center; width:16px; height:16px; cursor:pointer; transition:opacity 0.1s; color:#636C85; opacity:0.8; flex-shrink:0; }
 .pill-chip-x:hover { opacity:1; }
-.pill-chip-overflow { display:inline-flex; align-items:center; background:#EEF3FB; color:#4A5163; font-size:14px; font-weight:600; padding:0 8px 1px 8px; border-radius:16px; height:32px; width:48px; white-space:nowrap; flex-shrink:0; }
+.pill-chip-overflow { display:inline-flex; align-items:center; background:#EEF3FB; color:#4A5163; font-size:14px; font-weight:600; padding:0 10px 1px 0px; border-radius:16px; height:32px; width:48px; white-space:nowrap; flex-shrink:0; }
 .pill-chevron { display:flex; align-items:center; justify-content:center; width:20px; height:20px; flex-shrink:0; opacity:0.7; margin-left:8px; }
 
 /* DROPDOWN */
@@ -145,7 +145,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .pill-dd-item.selected:hover { background:#EEF3FB; }
 .pill-dd-check { display:none; }
 /* Circle checkmark */
-.dd-circle { width:15px; height:15px; border-radius:50%; background:#748AAB; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:background 0.12s,border-color 0.12s; }
+.dd-circle { width:15px; height:15px; border-radius:70%; background:#C6CEDB; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:background 0.12s,border-color 0.12s; }
 .pill-dd-item.selected .dd-circle { background:#637A9C; }
 .pill-dd-item:hover:not(.selected) .dd-circle svg { display:block; }/*{ background:#8FA9CE; }*/
 .dd-circle svg { display:none; }
