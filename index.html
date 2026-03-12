@@ -46,8 +46,8 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 
 /* Nav items: 40px tall, 12px L/R margin, 10px icon gap */
 .nav-item { display:flex; align-items:center; gap:12px; padding:0 12px; height:36px; min-height:36px; max-height:36px; cursor:pointer; color:var(--text-secondary); font-size:14px; font-weight:600; transition:background 0.1s,color 0.1s; user-select:none; border-radius:6px; margin:0 12px; overflow:hidden; white-space:nowrap; }
-.nav-item:hover { background:var(--nav-active-bg); color:var(--text-active); }
-.nav-item.active { background:var(--nav-active-bg); color:var(--text-active); font-weight:600; }
+.nav-item:hover { background:var( --accent-light); color:var(--text-active); }
+.nav-item.active { background:var(--accent-light); color:var(--text-active); font-weight:600; }
 /* Icon wrapper: exactly 20px wide, centered */
 .nav-item svg { flex-shrink:0; opacity:0.5; width:20px; height:20px; }
 .nav-item.active svg { opacity:1; }
