@@ -138,15 +138,15 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .pill-dropdown { position:absolute; top:calc(100% + 4px); left:calc(100% -20px); background:#fff; border:1px solid #D8DEE5; border-radius:20px; box-shadow:0 4px 16px rgba(0,0,0,0.08); width:260px; z-index:300; display:none; overflow:hidden; padding:8px; }
 .pill-dropdown.open { display:block; animation:fadeIn 0.1s ease; }
 .pill-dd-header { display:none; }
-.pill-dd-item { height:36px; padding:0px 12px 1px 12px; font-size:14px; font-weight:600; color:var(--text-secondary); cursor:pointer; transition:background 0.1s,color 0.1s; display:flex; align-items:center; justify-content:space-between; gap:16px; white-space:nowrap; border-radius:18px; margin-bottom:2px; }
+.pill-dd-item { height:36px; padding:0px 12px 1px 12px; font-size:14px; font-weight:600; color:var(--text-secondary); cursor:pointer; transition:background 0.1s,color 0.1s; display:flex; align-items:center; justify-content:space-between; gap:16px; white-space:nowrap; border-radius:16px; margin-bottom:2px; }
 .pill-dd-item:last-child { margin-bottom:8; }
 .pill-dd-item:hover { background:#EEF3FB; color:var(--text-active); }
 .pill-dd-item.selected { color:var(--text-active); }
 .pill-dd-item.selected:hover { background:#EEF3FB; }
 .pill-dd-check { display:none; }
 /* Circle checkmark */
-.dd-circle { width:15px; height:15px; border-radius:50%; background:#EAEEF4; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:background 0.12s,border-color 0.12s; }
-.pill-dd-item.selected .dd-circle { background:#748AAB; }
+.dd-circle { width:15px; height:15px; border-radius:50%; background:#748AAB; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:background 0.12s,border-color 0.12s; }
+.pill-dd-item.selected .dd-circle { background:#637A9C; }
 .pill-dd-item:hover:not(.selected) .dd-circle svg { display:block; }/*{ background:#8FA9CE; }*/
 .dd-circle svg { display:none; }
 .pill-dd-item.selected .dd-circle svg { display:block; }
