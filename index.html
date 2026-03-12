@@ -117,7 +117,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .tabs-bar .tabs { padding:0; }
 
 /* TOOLBAR — 138px total: 48px top padding + 42px row + 48px bottom padding */
-.toolbar { display:flex; align-items:center; justify-content:space-between; padding:32px 64px 32px; background:#F9FAFB; flex-shrink:0; gap:8px; overflow:visible; }
+.toolbar { display:flex; align-items:center; justify-content:space-between; padding:32px 64px 32px 48px; background:#F9FAFB; flex-shrink:0; gap:8px; overflow:visible; }
 .filter-group { display:flex; gap:8px; flex-wrap:wrap; overflow:visible; }
 
 /* PILLS */
@@ -206,7 +206,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-pr
 .table-container::-webkit-scrollbar { width:5px; }
 .table-container::-webkit-scrollbar-thumb { background:#d1d5db; border-radius:8px; }
 table { width:100%; border-collapse:separate; border-spacing:0 0; padding:0 32px 16px; table-layout:fixed; }
-thead th { padding:0 12px; height:32px; text-align:left; font-size:14px; font-weight:600; letter-spacing:0.05em; color:var(--text-primary); background:#F9FAFB; position:sticky; top:0; z-index:2; cursor:pointer; user-select:none; white-space:nowrap; overflow:visible; text-overflow:ellipsis; transition:color 0.1s; display:table-cell; vertical-align:middle; border-bottom:none; box-shadow:0 1px 0 0 #F9FAFB; }
+thead th { padding:0 12px; height:32px; text-align:left; font-size:14px; font-weight:600; letter-spacing:0.01em; color:var(--text-primary); background:#F9FAFB; position:sticky; top:0; z-index:2; cursor:pointer; user-select:none; white-space:nowrap; overflow:visible; text-overflow:ellipsis; transition:color 0.1s; display:table-cell; vertical-align:middle; border-bottom:none; box-shadow:0 1px 0 0 #F9FAFB; }
 thead th::before { content:''; position:absolute; inset:0 -2px; background:#F9FAFB; z-index:-1; }
 thead tr { border-bottom:none; box-shadow:none; }
 thead th:hover { color:var(--text-active); }
